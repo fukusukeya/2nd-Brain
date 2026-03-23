@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
+  <!-- Minimalist Katou Kensou Corporate Logo -->
+  <defs>
+    <style>
+      .target-ring {
+        stroke: #111827;
+        fill: none;
+        stroke-width: 32;
+      }
+      .target-center {
+        fill: #111827;
+      }
+      .blade {
+        fill: #4B5563;
+        stroke: #111827;
+        stroke-width: 6;
+        stroke-linejoin: round;
+      }
+      .blade-bevel {
+        fill: #9CA3AF;
+      }
+      .handle {
+        fill: #1F2937;
+        stroke: #111827;
+        stroke-width: 6;
+      }
+      .handle-end {
+        fill: #4B5563;
+        stroke: #111827;
+        stroke-width: 6;
+      }
+      .rivet {
+        fill: #9CA3AF;
+      }
+      .company-name {
+        font-family: "Noto Serif JP", "Hiragino Mincho ProN", "Yu Mincho", serif;
+        font-size: 48px;
+        font-weight: 900;
+        fill: #111827;
+        text-anchor: middle;
+        letter-spacing: 4px;
+      }
+      .company-sub {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 16px;
+        font-weight: bold;
+        fill: #4B5563;
+        text-anchor: middle;
+        letter-spacing: 6px;
+      }
+    </style>
+  </defs>
+
+  <!-- Target -->
+  <g id="Target">
+    <circle cx="400" cy="360" r="220" class="target-ring" />
+    <circle cx="400" cy="360" r="140" class="target-ring" />
+    <circle cx="400" cy="360" r="60"  class="target-ring" />
+    <circle cx="400" cy="360" r="15"  class="target-center" />
+  </g>
+
+  <!-- Kawa-suki Scraper -->
+  <!-- Translated to center and rotated -15 deg so the handle is at top-right -->
+  <g id="Scraper" transform="translate(400,360) rotate(-15)">
+    
+    <!-- Blade Body (slant: tip at 0,0 extending down to 30,80) -->
+    <polygon points="0,0 30,80 160,60 160,20" class="blade" />
+    
+    <!-- Blade Bevel / Shiny Edge -->
+    <polygon points="3,3 28,75 38,75 13,3" class="blade-bevel" />
+    
+    <!-- Wooden/Dark Handle -->
+    <rect x="155" y="15" width="180" height="50" rx="6" class="handle" />
+    
+    <!-- Metal End Cap -->
+    <rect x="325" y="15" width="15" height="50" rx="3" class="handle-end" />
+    
+    <!-- Rivets -->
+    <circle cx="200" cy="40" r="5" class="rivet" />
+    <circle cx="280" cy="40" r="5" class="rivet" />
+  </g>
+
+  <!-- Typography -->
+  <text x="400" y="680" class="company-name">株式会社 加藤建装</text>
+  <text x="400" y="730" class="company-sub">PAINTING &amp; REMODELING</text>
+</svg>
