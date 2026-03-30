@@ -586,6 +586,33 @@
       .screenshot-item { max-width: 220px; }
       .method-card { padding: 22px; }
     }
+    /* ===== CTAエリア ===== */
+    .cta-container {
+      margin: 40px 0 20px;
+      text-align: center;
+      padding-bottom: 40px;
+      border-bottom: 2px dashed rgba(0, 0, 0, 0.1);
+    }
+    .cta-text {
+      font-size: 22px;
+      font-weight: 800;
+      color: #1e293b;
+      margin-bottom: 24px;
+    }
+    .cta-btn {
+      display: inline-flex;
+      background: linear-gradient(135deg, #ef4444, #dc2626);
+      color: #ffffff;
+      font-size: 20px;
+      font-weight: 800;
+      padding: 24px 40px;
+      border-radius: 100px;
+      text-decoration: none;
+      box-shadow: 0 8px 24px rgba(220, 38, 38, 0.4);
+    }
+    .cta-btn:active {
+      transform: scale(0.96);
+    }
   </style>
 </head>
 <body>
@@ -894,7 +921,13 @@
 
   <!-- フッター -->
   <div class="footer">
-    <p>うまくいかない場合は<strong>粕谷</strong>までお気軽にご連絡ください！</p>
+    <div class="cta-container">
+      <div class="cta-text">さぁ、早速動画を大画面で見てみましょう！</div>
+      <a href="https://docs.google.com/spreadsheets/d/1GthFpTAQRmnmsW7FbaNQjDPt4caiJ22ejZ1pUurX_eY/edit?gid=1669902209#gid=1669902209" class="cta-btn" target="_blank" rel="noopener noreferrer">
+        ▶ 動画リストを開く
+      </a>
+    </div>
+    <p>うまくいかない場合は<strong>粕谷</strong>までお気軽にご連絡ください！<br>一緒に解決しましょう 😊</p>
   </div>
 
     </div> <!-- /.main-content -->
