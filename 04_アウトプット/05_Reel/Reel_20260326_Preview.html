@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reel Preview - はじめましてMachiスタジオです</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=Zen+Kaku+Gothic+New:wght@700;900&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background: #0a0a14;
+    min-height: 100vh;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding: 24px;
+  }
+
+  /* Phone Frame (9:16 aspect ratio) */
+  .phone-frame {
+    width: 280px; height: 498px;
+    background: #000; border-radius: 28px; overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6), 0 0 0 2px rgba(255,255,255,0.1);
+    position: relative; cursor: pointer;
+  }
+
+  /* Scenes */
+  .scene {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding: 40px 24px;
+    opacity: 0; transition: opacity 0.5s ease;
+    text-align: center;
+  }
+  .scene.active { opacity: 1; }
+
+  /* Scene backgrounds */
+  .sc-hook { background: linear-gradient(180deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); }
+  .sc-b1 { background: linear-gradient(180deg, #1a1a2e 0%, #2d1b3d 60%, #44235c 100%); }
+  .sc-b2 { background: linear-gradient(180deg, #0d2137 0%, #0a3d2e 60%, #1a5c3a 100%); }
+  .sc-b3 { background: linear-gradient(180deg, #1a1a2e 0%, #2c1810 60%, #4a2612 100%); }
+  .sc-b4 { background: linear-gradient(180deg, #0f0f2e 0%, #1a1050 60%, #2d1b6e 100%); }
+  .sc-sum { background: linear-gradient(180deg, #0a0a14 0%, #1a1a2e 40%, #6c5ce7 100%); }
+  .sc-cta { background: linear-gradient(180deg, #004d40 0%, #00695c 50%, #00897b 100%); }
+
+  /* Telop */
+  .telop-main {
+    font-family: 'Zen Kaku Gothic New', 'Noto Sans JP', sans-serif;
+    font-weight: 900; font-size: 24px; color: #fff;
+    line-height: 1.5; margin-bottom: 16px;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.6);
+  }
+  .telop-em { color: #ff6b6b; }
+  .telop-em-purple { color: #a29bfe; }
+  .telop-em-green { color: #55efc4; }
+
+  .telop-sub {
+    font-size: 12px; color: rgba(255,255,255,0.5);
+    line-height: 1.6; margin-top: 8px;
+  }
+
+  /* Time indicator */
+  .time-indicator {
+    position: absolute; top: 12px; right: 14px;
+    font-size: 11px; color: rgba(255,255,255,0.4);
+    font-weight: 700; letter-spacing: 0.05em;
+  }
+
+  /* Progress bar */
+  .progress-bar {
+    position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: rgba(255,255,255,0.15);
+  }
+  .progress-fill {
+    height: 100%; background: #fff; border-radius: 2px;
+    transition: width 0.4s ease;
+  }
+
+  /* Reel side icons */
+  .reel-actions {
+    position: absolute; right: 10px; bottom: 80px;
+    display: flex; flex-direction: column; align-items: center; gap: 18px;
+  }
+  .reel-action { text-align: center; }
+  .reel-action-icon { font-size: 22px; display: block; }
+  .reel-action-label { font-size: 9px; color: rgba(255,255,255,0.7); margin-top: 2px; }
+
+  /* Bottom info */
+  .reel-bottom {
+    position: absolute; bottom: 14px; left: 14px; right: 54px;
+  }
+  .reel-username { font-size: 12px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+  .reel-caption-preview { font-size: 10px; color: rgba(255,255,255,0.6); line-height: 1.4; }
+
+  /* Audio bar */
+  .audio-bar {
+    position: absolute; bottom: 0; left: 0; right: 0; height: 28px;
+    background: rgba(0,0,0,0.5); display: flex; align-items: center; padding: 0 14px; gap: 8px;
+  }
+  .audio-icon { font-size: 12px; }
+  .audio-name { font-size: 9px; color: rgba(255,255,255,0.5); flex: 1; }
+  .audio-disc {
+    width: 20px; height: 20px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.3);
+    background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 7px; color: #fff; font-weight: 900;
+    animation: spin 3s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* Navigation */
+  .nav { display: flex; gap: 12px; margin-top: 20px; }
+  .nav button {
+    padding: 10px 28px; border: none; border-radius: 99px; font-size: 13px;
+    font-weight: 700; cursor: pointer; transition: all 0.2s;
+    font-family: 'Noto Sans JP', sans-serif;
+  }
+  .nav .prev { background: rgba(255,255,255,0.1); color: #fff; }
+  .nav .prev:hover { background: rgba(255,255,255,0.2); }
+  .nav .next { background: #6c5ce7; color: #fff; }
+  .nav .next:hover { background: #5a4bd1; }
+  .nav .play-btn { background: #e74c3c; color: #fff; }
+  .nav .play-btn:hover { background: #c0392b; }
+  .counter { color: rgba(255,255,255,0.4); font-size: 12px; margin-top: 10px; }
+
+  /* Accent line */
+  .accent-line { width: 32px; height: 2px; background: rgba(255,255,255,0.2); margin-bottom: 20px; border-radius: 1px; }
+
+  /* Logo */
+  .logo-watermark {
+    position: absolute; top: 14px; left: 14px;
+    font-size: 10px; font-weight: 900; color: rgba(255,255,255,0.25);
+    letter-spacing: 0.12em;
+  }
+</style>
+</head>
+<body>
+
+<div class="phone-frame" id="phone">
+  <!-- Progress -->
+  <div class="progress-bar"><div class="progress-fill" id="progress" style="width:14.28%"></div></div>
+
+  <!-- Scene 1: Hook -->
+  <div class="scene sc-hook active" data-time="0-2秒">
+    <div class="logo-watermark">MACHI STUDIO</div>
+    <div class="time-indicator">0:00</div>
+    <div class="telop-main"><span class="telop-em">宮城には、</span><br>面白い仕事がない？</div>
+    <div class="telop-sub">HOOK - スクロール停止</div>
+  </div>
+
+  <!-- Scene 2: Body1 -->
+  <div class="scene sc-b1" data-time="2-6秒">
+    <div class="logo-watermark">MACHI STUDIO</div>
+    <div class="time-indicator">0:02</div>
+    <div class="accent-line"></div>
+    <div class="telop-main"><span class="telop-em">そう思ってた時期が</span><br>私にもありました</div>
+  </div>
+
+  <!-- Scene 3: Body2 -->
+  <div class="scene sc-b2" data-time="6-10秒">
+    <div class="logo-watermark">MACHI STUDIO</div>
+    <div class="time-indicator">0:06</div>
+    <div class="accent-line" style="background:rgba(85,239,196,0.3)"></div>
+    <div class="telop-main"><span class="telop-em-green">でも、</span>経営者と<br>話すと<br>全く違った</div>
+  </div>
+
+  <!-- Scene 4: Body3 -->
+  <div class="scene sc-b3" data-time="10-15秒">
+    <div class="logo-watermark">MACHI STUDIO</div>
+    <div class="time-indicator">0:10</div>
+    <div class="accent-line" style="background:rgba(255,107,107,0.3)"></div>
+    <div class="telop-main">会社の熱い想いが<br>求職者に<span class="telop-em">「翻訳」</span><br>できてないだけって<br>気付きました</div>
+  </div>
+
+  <!-- Scene 5: Body4 -->
+  <div class="scene sc-b4" data-time="15-20秒">
+    <div class="logo-watermark">MACHI STUDIO</div>
+    <div class="time-indicator">0:15</div>
+    <div class="accent-line" style="background:rgba(162,155,254,0.3)"></div>
+    <div class="telop-main"><span class="telop-em-purple">だから・・・</span><br>採用・集客の<br>翻訳者になります</div>
+  </div>
+
+  <!-- Scene 6: Summary -->
+  <div class="scene sc-sum" data-time="20-23秒">
+    <div class="logo-watermark">MACHI STUDIO</div>
+    <div class="time-indicator">0:20</div>
+    <div class="telop-main" style="font-size:22px;">「宮城で働く」を<br><span class="telop-em-purple" style="font-size:28px;">面白く。</span></div>
+  </div>
+
+  <!-- Scene 7: CTA -->
+  <div class="scene sc-cta" data-time="23-25秒">
+    <div class="logo-watermark">MACHI STUDIO</div>
+    <div class="time-indicator">0:23</div>
+    <div class="telop-main">共感したら<br><span class="telop-em-green">フォロー</span>してね！</div>
+    <div class="telop-sub">▼ プロフィールはこちら</div>
+  </div>
+
+  <!-- Reel Side Actions -->
+  <div class="reel-actions">
+    <div class="reel-action"><span class="reel-action-icon">♡</span><span class="reel-action-label">いいね</span></div>
+    <div class="reel-action"><span class="reel-action-icon">💬</span><span class="reel-action-label">コメント</span></div>
+    <div class="reel-action"><span class="reel-action-icon">✈️</span><span class="reel-action-label">共有</span></div>
+    <div class="reel-action"><span class="reel-action-icon">🔖</span><span class="reel-action-label">保存</span></div>
+  </div>
+
+  <!-- Bottom Info -->
+  <div class="reel-bottom">
+    <div class="reel-username">machi_studio_miyagi</div>
+    <div class="reel-caption-preview">はじめまして、Machiスタジオです。共感いただけましたら...</div>
+  </div>
+
+  <!-- Audio Bar -->
+  <div class="audio-bar">
+    <span class="audio-icon">♪</span>
+    <span class="audio-name">Original Sound - BGM</span>
+    <div class="audio-disc">M</div>
+  </div>
+</div>
+
+<!-- Controls -->
+<div class="nav">
+  <button class="prev" onclick="go(-1)">← 前へ</button>
+  <button class="play-btn" id="playBtn" onclick="toggleAutoPlay()">▶ 自動再生</button>
+  <button class="next" onclick="go(1)">次へ →</button>
+</div>
+<div class="counter" id="counter">1 / 7 — Hook (0-2秒)</div>
+
+<script>
+  let current = 0;
+  const total = 7;
+  const scenes = document.querySelectorAll('.scene');
+  const progress = document.getElementById('progress');
+  const counter = document.getElementById('counter');
+  const playBtn = document.getElementById('playBtn');
+  let autoPlayTimer = null;
+  const durations = [2000, 4000, 4000, 5000, 5000, 3000, 2000]; // ms per scene
+  const labels = ['Hook (0-2秒)', 'Body1 (2-6秒)', 'Body2 (6-10秒)', 'Body3 (10-15秒)', 'Body4 (15-20秒)', 'まとめ (20-23秒)', 'CTA (23-25秒)'];
+
+  function go(dir) {
+    scenes[current].classList.remove('active');
+    current = (current + dir + total) % total;
+    scenes[current].classList.add('active');
+    progress.style.width = `${((current + 1) / total) * 100}%`;
+    counter.textContent = `${current + 1} / ${total} — ${labels[current]}`;
+  }
+
+  function toggleAutoPlay() {
+    if (autoPlayTimer) {
+      clearTimeout(autoPlayTimer);
+      autoPlayTimer = null;
+      playBtn.textContent = '▶ 自動再生';
+      playBtn.style.background = '#e74c3c';
+    } else {
+      playBtn.textContent = '⏸ 停止';
+      playBtn.style.background = '#666';
+      autoAdvance();
+    }
+  }
+
+  function autoAdvance() {
+    autoPlayTimer = setTimeout(() => {
+      if (current < total - 1) {
+        go(1);
+        autoAdvance();
+      } else {
+        // Loop back
+        scenes[current].classList.remove('active');
+        current = 0;
+        scenes[current].classList.add('active');
+        progress.style.width = `${((current + 1) / total) * 100}%`;
+        counter.textContent = `${current + 1} / ${total} — ${labels[current]}`;
+        autoAdvance();
+      }
+    }, durations[current]);
+  }
+
+  // Click navigation
+  document.getElementById('phone').addEventListener('click', (e) => {
+    if (e.target.closest('.reel-actions') || e.target.closest('.audio-bar')) return;
+    const rect = e.currentTarget.getBoundingClientRect();
+    const y = e.clientY - rect.top;
+    go(y < rect.height / 2 ? -1 : 1);
+  });
+
+  // Keyboard
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') { e.preventDefault(); go(1); }
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') go(-1);
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,549 @@
+/* 
+    AERIS Coffee Roasters - Stylesheet 
+    Theme: Modern, Minimal, Clean
+*/
+
+/* Reset & Variables */
+:root {
+    --color-bg: #F9F9F8;
+    --color-text: #1A1A1A;
+    --color-text-light: #5A5A5A;
+    --color-accent: #D4AF37;
+    --color-border: #E5E5E5;
+    
+    --font-heading: 'Playfair Display', serif;
+    --font-sans: 'Inter', sans-serif;
+    --font-ja: 'Noto Sans JP', sans-serif;
+    
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 4rem;
+    --spacing-xl: 8rem;
+    
+    --transition-fast: 0.3s ease;
+    --transition-slow: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-sans);
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    line-height: 1.8;
+    letter-spacing: 0.05em;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, .serif {
+    font-family: var(--font-heading);
+    font-weight: 400;
+}
+
+/* 日本語テキストにNoto Sansを適用 */
+p, .hero-subphrase, .section-title, .desc {
+    font-family: var(--font-ja);
+}
+
+/* 英語の見出しはPlayfair */
+.section-subtitle, .hero-catchphrase, .price {
+    font-family: var(--font-heading);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: var(--transition-fast);
+}
+
+a:hover {
+    color: var(--color-accent);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5%;
+}
+
+.section {
+    padding: var(--spacing-xl) 0;
+}
+
+.section-header {
+    margin-bottom: var(--spacing-lg);
+    text-align: center;
+}
+
+.section-subtitle {
+    display: block;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--color-text-light);
+    margin-bottom: var(--spacing-sm);
+}
+
+.section-title {
+    font-size: 2.5rem;
+    line-height: 1.4;
+}
+
+/* Header */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: var(--spacing-md) 5%;
+    z-index: 100;
+    background: linear-gradient(to bottom, rgba(249, 249, 248, 0.9) 0%, rgba(249, 249, 248, 0) 100%);
+    backdrop-filter: blur(5px);
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 48px;
+    width: auto;
+    object-fit: contain;
+}
+
+.global-nav ul {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.global-nav a {
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+    filter: brightness(0.65);
+    transform: scale(1.05); /* 微細なアニメーション用 */
+    animation: zoomOut 20s infinite alternate linear;
+}
+
+@keyframes zoomOut {
+    0% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.hero-content {
+    text-align: center;
+    color: #FFF;
+    margin-top: -5vh;
+}
+
+.hero-logo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+    transform: translateY(-20px);
+}
+
+.hero-logo img {
+    height: 280px;
+    max-width: 90%;
+    width: auto;
+    object-fit: contain;
+}
+
+.hero-catchphrase {
+    font-size: clamp(3rem, 6vw, 5rem);
+    line-height: 1.1;
+    font-style: italic;
+    margin-bottom: var(--spacing-md);
+    opacity: 0;
+    animation: fadeUp 1s var(--transition-slow) forwards 0.5s;
+}
+
+.hero-subphrase {
+    font-size: 1.125rem;
+    font-weight: 300;
+    letter-spacing: 0.2em;
+    opacity: 0;
+    animation: fadeUp 1s var(--transition-slow) forwards 0.8s;
+}
+
+.scroll-down {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #FFF;
+    font-family: var(--font-heading);
+    font-size: 0.875rem;
+    letter-spacing: 0.2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    opacity: 0;
+    animation: fadeIn 1s ease forwards 1.5s;
+}
+
+.scroll-down::after {
+    content: '';
+    width: 1px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.5);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Concept Section */
+.concept {
+    background-color: #FFF;
+}
+
+.concept-container {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xl);
+}
+
+.concept-text {
+    flex: 1;
+}
+
+.concept-text .section-title {
+    margin-bottom: var(--spacing-md);
+}
+
+.concept-text p {
+    color: var(--color-text-light);
+    font-size: 1rem;
+}
+
+.concept-image {
+    flex: 1;
+}
+
+.concept-image img {
+    aspect-ratio: 3/4;
+    object-fit: cover;
+}
+
+/* Menu Section */
+.menu {
+    background-color: var(--color-bg);
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-md);
+}
+
+.menu-item {
+    background: #FFF;
+    padding: var(--spacing-md);
+    transition: var(--transition-fast);
+}
+
+.menu-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+}
+
+.menu-image {
+    margin-bottom: var(--spacing-md);
+    overflow: hidden;
+}
+
+.menu-image img {
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    transition: var(--transition-slow);
+}
+
+.menu-item:hover .menu-image img {
+    transform: scale(1.05);
+}
+
+.menu-info h3 {
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-xs);
+}
+
+.price {
+    font-size: 1.125rem;
+    color: var(--color-accent);
+    margin-bottom: var(--spacing-sm);
+}
+
+.desc {
+    font-size: 0.875rem;
+    color: var(--color-text-light);
+}
+
+/* Products Section */
+.products {
+    background-color: #FFF;
+}
+
+.products-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.product-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-lg);
+}
+
+.product-item:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.product-item img {
+    flex: 1;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+}
+
+.product-content {
+    flex: 1;
+    padding: var(--spacing-md);
+}
+
+.product-content h3 {
+    font-size: 1.75rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.product-content p {
+    color: var(--color-text-light);
+    margin-bottom: var(--spacing-md);
+}
+
+.btn-text {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-style: italic;
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 2px;
+}
+
+/* Access Section */
+.access {
+    background-color: var(--color-text);
+    color: #FFF;
+}
+
+.access-content {
+    display: flex;
+    gap: var(--spacing-lg);
+    align-items: center;
+}
+
+.access-info {
+    flex: 1;
+}
+
+.access-info .section-title {
+    margin-bottom: var(--spacing-md);
+}
+
+.info-list li {
+    margin-bottom: var(--spacing-sm);
+    font-size: 1rem;
+    font-family: var(--font-ja);
+}
+
+.info-list strong {
+    display: inline-block;
+    width: 80px;
+    font-family: var(--font-heading);
+    font-weight: 400;
+    color: var(--color-accent);
+}
+
+.sns-links {
+    margin-top: var(--spacing-lg);
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.sns-links a {
+    font-family: var(--font-heading);
+    font-style: italic;
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 2px;
+}
+
+.access-map {
+    flex: 1;
+}
+
+.map-placeholder {
+    position: relative;
+    aspect-ratio: 1;
+}
+
+.map-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.6;
+}
+
+.map-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid #FFF;
+    padding: 1rem 2rem;
+    font-family: var(--font-heading);
+    font-style: italic;
+    background: rgba(26, 26, 26, 0.5);
+    backdrop-filter: blur(4px);
+}
+
+.footer {
+    background-color: var(--color-text);
+    color: var(--color-bg);
+    padding: var(--spacing-md) 0;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.footer-logo img {
+    height: 56px;
+    width: auto;
+    object-fit: contain;
+    filter: brightness(0) invert(1); /* 文字が白抜きになっていたので、ロゴも白に（黒ロゴの場合） */
+}
+
+.footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+}
+
+.footer-nav {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.footer-nav a {
+    font-size: 0.875rem;
+    color: var(--color-text-light);
+}
+
+.copyright {
+    text-align: center;
+    font-size: 0.75rem;
+    color: var(--color-text-light);
+}
+
+/* Animations */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+    .concept-container,
+    .access-content {
+        flex-direction: column;
+    }
+    
+    .product-item,
+    .product-item:nth-child(even) {
+        flex-direction: column;
+    }
+    
+    .menu-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --spacing-md: 1.5rem;
+        --spacing-lg: 3rem;
+        --spacing-xl: 5rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .global-nav {
+        display: none; /* スマホ版はハンバーガーメニュー等を入れる想定だが今回は非表示 */
+    }
+    
+    .menu-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-inner {
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+}

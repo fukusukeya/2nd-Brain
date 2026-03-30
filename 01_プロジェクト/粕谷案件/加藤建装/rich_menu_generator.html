@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>加藤建装 リッチメニュー生成 (デザインリッチ・ホワイト版)</title>
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+  body { 
+    margin: 0; 
+    padding: 40px 20px; 
+    background: #f1f5f9; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    font-family: 'Noto Sans JP', sans-serif; 
+  }
+  h1 { color: #1e293b; margin-bottom: 10px; }
+  .instructions { margin-bottom: 40px; text-align: center; color: #475569; }
+  button.download { 
+    padding: 16px 32px; 
+    font-size: 20px; 
+    background: #0ea5e9; 
+    color: white; 
+    border: none; 
+    border-radius: 50px; 
+    cursor: pointer; 
+    font-weight: bold; 
+    box-shadow: 0 4px 15px rgba(14, 165, 233, 0.3);
+    transition: all 0.2s;
+  }
+  button.download:hover { 
+    background: #0284c7; 
+    transform: translateY(-2px);
+  }
+
+  /* メニューキャンバス自体の設定（実寸サイズ: LINE小サイズ） */
+  #rich-menu {
+    width: 2500px;
+    height: 843px;
+    display: flex;
+    background: #ffffff; /* 白背景 */
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+    transform-origin: top left;
+    transform: scale(0.4); 
+    border-radius: 20px; /* 見た目用 */
+  }
+
+  /* セクション共通 */
+  .menu-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-sizing: border-box;
+    /* うすいグレーの区切り線 */
+    border-right: 4px solid #f1f5f9;
+    position: relative;
+    overflow: hidden;
+  }
+  .menu-item:last-child {
+    border-right: none;
+  }
+
+  /* アイコン周辺のデザイン（円形のソフトな背景でデザイン性を高める） */
+  .icon-wrapper {
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+    box-shadow: 10px 15px 40px rgba(0,0,0,0.06);
+    position: relative;
+    z-index: 10;
+  }
+  
+  /* アイコン自体のサイズ */
+  .icon-wrapper i {
+    font-size: 110px;
+  }
+
+  /* 1. 見積もり相談（CVエリア：オレンジベースで目立たせる） */
+  .cv-icon {
+    background: linear-gradient(135deg, #ffedd5 0%, #fed7aa 100%);
+    color: #ea580c;
+    border: 8px solid #fffaf0;
+  }
+  /* 2. 施工実績（誠実さ：ブルーベース） */
+  .works-icon {
+    background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%);
+    color: #4338ca;
+    border: 8px solid #f5f8ff;
+  }
+  /* 3. 会社紹介（信頼：グレー/ネイビーベース） */
+  .about-icon {
+    background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+    color: #334155;
+    border: 8px solid #f8fafc;
+  }
+
+  /* タイトル */
+  .title { 
+    font-size: 72px; 
+    font-weight: 900; 
+    letter-spacing: 0.05em; 
+    color: #1e293b;
+    margin-bottom: 30px; 
+    z-index: 10;
+  }
+
+  /* サブタイトル（第1案の構成を引き継ぎ、ピル型のバッジにする） */
+  .sub { 
+    font-size: 44px; 
+    font-weight: 700; 
+    padding: 12px 35px; 
+    border-radius: 50px;
+    z-index: 10;
+    color: #ffffff;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  }
+  
+  .cv-sub { background: linear-gradient(135deg, #f97316 0%, #ea580c 100%); }
+  .works-sub { background: linear-gradient(135deg, #4f46e5 0%, #4338ca 100%); }
+  .about-sub { background: linear-gradient(135deg, #475569 0%, #334155 100%); }
+
+  /* 第1案にあった背景装飾（白背景に合わせて非常に薄く） */
+  .decoration { 
+    position: absolute; 
+    font-size: 380px; 
+    opacity: 0.03; 
+    bottom: -60px; 
+    right: -40px; 
+    transform: rotate(-15deg); 
+    pointer-events: none;
+    color: #000;
+  }
+</style>
+</head>
+<body>
+
+  <h1>🎨 カトウ建装 リッチメニュー生成ジェネレーター</h1>
+  <div class="instructions">
+    <p>「第1案の構成（アイコン＋タイトル＋サブタイトル）」を維持しつつ、<br>
+    白背景に映える「デザイン性の高い円形背景＋シャドウ付きアイコン」にアップデートしました。</p>
+    <button class="download" onclick="downloadImage()"><i class="fa-solid fa-download"></i> リッチメニュー画像をダウンロード</button>
+  </div>
+
+  <div style="width: 1000px; height: 350px;">
+    <!-- 実際のキャンバス -->
+    <div id="rich-menu">
+      
+      <!-- 1. お見積り・ご相談 -->
+      <div class="menu-item">
+        <div class="icon-wrapper cv-icon">
+          <i class="fa-solid fa-mobile-screen-button"></i>
+        </div>
+        <div class="title">写真で見積もり</div>
+        <div class="sub cv-sub">無料相談はこちら</div>
+        <i class="fa-solid fa-image decoration"></i>
+      </div>
+
+      <!-- 2. 施工実績 -->
+      <div class="menu-item">
+        <div class="icon-wrapper works-icon">
+          <i class="fa-solid fa-house-chimney"></i>
+        </div>
+        <div class="title">施工実績を見る</div>
+        <div class="sub works-sub">Before / After</div>
+        <i class="fa-solid fa-paint-roller decoration"></i>
+      </div>
+
+      <!-- 3. カトウ建装について -->
+      <div class="menu-item">
+        <div class="icon-wrapper about-icon">
+          <i class="fa-solid fa-helmet-safety"></i>
+        </div>
+        <div class="title">会社・親方紹介</div>
+        <div class="sub about-sub">地域密着の塗装業者</div>
+        <i class="fa-solid fa-hammer decoration"></i>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    function downloadImage() {
+      const element = document.getElementById('rich-menu');
+      const btn = document.querySelector('.download');
+      
+      const originalText = btn.innerHTML;
+      btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> 生成中...';
+      btn.style.background = '#94a3b8';
+      
+      element.style.transform = 'scale(1)';
+      element.style.borderRadius = '0';
+      
+      html2canvas(element, { 
+        width: 2500, 
+        height: 843,
+        scale: 1, 
+        backgroundColor: '#ffffff' 
+      }).then(canvas => {
+        let link = document.createElement('a');
+        link.download = 'kato_rich_menu_high_design.png';
+        link.href = canvas.toDataURL("image/png");
+        link.click();
+        
+        element.style.transform = 'scale(0.4)';
+        element.style.borderRadius = '20px';
+        btn.innerHTML = '<i class="fa-solid fa-check"></i> ダウンロード完了';
+        btn.style.background = '#10b981';
+        
+        setTimeout(() => {
+          btn.innerHTML = originalText;
+          btn.style.background = '';
+        }, 3000);
+      });
+    }
+  </script>
+</body>
+</html>

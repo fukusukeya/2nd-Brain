@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Instagram Slide Preview - Machiスタジオ</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=Zen+Kaku+Gothic+New:wght@700;900&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Noto Sans JP', sans-serif; background: #1a1a2e; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24px; }
+
+  .phone-frame {
+    width: 375px; background: #fff; border-radius: 32px; overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5); position: relative;
+  }
+
+  /* Header */
+  .insta-header { display: flex; align-items: center; padding: 12px 16px; gap: 10px; border-bottom: 1px solid #eee; }
+  .avatar { width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, #6c5ce7, #a29bfe); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 14px; font-weight: 900; }
+  .username { font-size: 13px; font-weight: 700; }
+
+  /* Slide Container */
+  .slide-viewport { width: 375px; height: 375px; position: relative; overflow: hidden; cursor: pointer; }
+  .slide {
+    width: 375px; height: 375px; position: absolute; top: 0; left: 0;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding: 40px 36px; text-align: center;
+    opacity: 0; transition: opacity 0.4s ease, transform 0.4s ease;
+    transform: scale(0.95);
+  }
+  .slide.active { opacity: 1; transform: scale(1); }
+  .slide .deka {
+    font-family: 'Zen Kaku Gothic New', 'Noto Sans JP', sans-serif;
+    font-weight: 900; line-height: 1.4; margin-bottom: 12px;
+  }
+  .slide .hosoku { font-size: 13px; line-height: 1.8; opacity: 0.85; }
+
+  /* Slide 1 */
+  .s1 { background: linear-gradient(135deg, #6c5ce7, #a29bfe); color: #fff; }
+  .s1 .deka { font-size: 26px; }
+  .s1 .hosoku { font-size: 11px; opacity: 0.6; margin-top: 8px; letter-spacing: 0.1em; }
+
+  /* Slide 2 */
+  .s2 { background: #fff3e0; color: #333; }
+  .s2 .deka { font-size: 24px; color: #e65100; }
+
+  /* Slide 3 */
+  .s3 { background: #fce4ec; color: #333; }
+  .s3 .deka { font-size: 22px; color: #c62828; }
+
+  /* Slide 4 */
+  .s4 { background: #e8f5e9; color: #333; }
+  .s4 .deka { font-size: 22px; color: #2e7d32; }
+
+  /* Slide 5 */
+  .s5 { background: #e3f2fd; color: #333; }
+  .s5 .deka { font-size: 24px; color: #1565c0; }
+
+  /* Slide 6 */
+  .s6 { background: linear-gradient(135deg, #4a148c, #7b1fa2); color: #fff; }
+  .s6 .deka { font-size: 22px; }
+
+  /* Slide 7 */
+  .s7 { background: linear-gradient(135deg, #1a1a2e, #2d3436); color: #fff; }
+  .s7 .deka { font-size: 26px; background: linear-gradient(90deg, #6c5ce7, #a29bfe); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+  /* Slide 8 */
+  .s8 { background: linear-gradient(135deg, #00b894, #00cec9); color: #fff; }
+  .s8 .deka { font-size: 24px; }
+
+  /* Dots */
+  .dots { display: flex; gap: 6px; justify-content: center; padding: 12px 0; }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: #ccc; transition: all 0.3s; }
+  .dot.active { background: #6c5ce7; width: 18px; border-radius: 3px; }
+
+  /* Actions */
+  .actions { display: flex; align-items: center; padding: 10px 16px; gap: 16px; }
+  .action-icon { font-size: 22px; cursor: pointer; }
+  .action-spacer { flex: 1; }
+
+  /* Nav Arrows */
+  .nav { display: flex; gap: 12px; margin-top: 20px; }
+  .nav button {
+    padding: 10px 28px; border: none; border-radius: 99px; font-size: 14px; font-weight: 700; cursor: pointer; transition: all 0.2s;
+    font-family: 'Noto Sans JP', sans-serif;
+  }
+  .nav .prev { background: rgba(255,255,255,0.15); color: #fff; }
+  .nav .prev:hover { background: rgba(255,255,255,0.25); }
+  .nav .next { background: #6c5ce7; color: #fff; }
+  .nav .next:hover { background: #5a4bd1; }
+  .counter { color: rgba(255,255,255,0.5); font-size: 13px; margin-top: 12px; }
+
+  /* Decorative elements on slides */
+  .slide .accent-line { width: 40px; height: 3px; background: currentColor; opacity: 0.3; margin-bottom: 20px; border-radius: 2px; }
+  .slide .logo-mark { font-size: 11px; opacity: 0.4; position: absolute; bottom: 16px; letter-spacing: 0.15em; }
+</style>
+</head>
+<body>
+
+<div class="phone-frame">
+  <!-- Header -->
+  <div class="insta-header">
+    <div class="avatar">M</div>
+    <div class="username">machi_studio_miyagi</div>
+  </div>
+
+  <!-- Slides -->
+  <div class="slide-viewport" id="viewport">
+
+    <div class="slide s1 active" data-index="0">
+      <div class="deka">はじめまして<br>Machiスタジオです</div>
+      <div class="hosoku">宮城で働くを面白く</div>
+      <div class="logo-mark">MACHI STUDIO</div>
+    </div>
+
+    <div class="slide s2" data-index="1">
+      <div class="accent-line"></div>
+      <div class="deka">「宮城には<br>面白い仕事がない」</div>
+      <div class="hosoku">就活中、私も本気で<br>そう思ってました。</div>
+      <div class="logo-mark">MACHI STUDIO</div>
+    </div>
+
+    <div class="slide s3" data-index="2">
+      <div class="accent-line"></div>
+      <div class="deka">だって、目に入る<br>「求人票」は</div>
+      <div class="hosoku">どれも無機質で、<br>つまらなそうだったから。</div>
+      <div class="logo-mark">MACHI STUDIO</div>
+    </div>
+
+    <div class="slide s4" data-index="3">
+      <div class="accent-line"></div>
+      <div class="deka">でも実際に<br>経営者たちと話すと</div>
+      <div class="hosoku">想像を絶する「熱意」と<br>「ドラマ」があることに<br>気付きました。</div>
+      <div class="logo-mark">MACHI STUDIO</div>
+    </div>
+
+    <div class="slide s5" data-index="4">
+      <div class="accent-line"></div>
+      <div class="deka">魅力が「ない」<br>んじゃない。</div>
+      <div class="hosoku">求職者に届く形に<br>「翻訳」できていないだけ。</div>
+      <div class="logo-mark">MACHI STUDIO</div>
+    </div>
+
+    <div class="slide s6" data-index="5">
+      <div class="accent-line"></div>
+      <div class="deka">「採用の翻訳者」<br>として</div>
+      <div class="hosoku">見えない社長の想いを<br>言葉と映像で届ける。<br>それが「Machiスタジオ」です。</div>
+      <div class="logo-mark">MACHI STUDIO</div>
+    </div>
+
+    <div class="slide s7" data-index="6">
+      <div class="accent-line" style="background:#6c5ce7;"></div>
+      <div class="deka">「宮城で働く」を<br>もっと面白く。</div>
+      <div class="hosoku" style="color:rgba(255,255,255,0.65);">挑戦する地元企業と若者の<br>「最高の出会い」を創りたい。</div>
+      <div class="logo-mark">MACHI STUDIO</div>
+    </div>
+
+    <div class="slide s8" data-index="7">
+      <div class="deka">私たちの挑戦は<br>ここから</div>
+      <div class="hosoku">共感・応援してくださる方は<br>ぜひ【保存】して<br>見届けてください！</div>
+      <div class="logo-mark">MACHI STUDIO</div>
+    </div>
+
+  </div>
+
+  <!-- Dots -->
+  <div class="dots" id="dots">
+    <div class="dot active"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+  </div>
+
+  <!-- Actions -->
+  <div class="actions">
+    <span class="action-icon">♡</span>
+    <span class="action-icon">💬</span>
+    <span class="action-icon">✈️</span>
+    <span class="action-spacer"></span>
+    <span class="action-icon">🔖</span>
+  </div>
+</div>
+
+<!-- Navigation -->
+<div class="nav">
+  <button class="prev" onclick="go(-1)">← 前へ</button>
+  <button class="next" onclick="go(1)">次へ →</button>
+</div>
+<div class="counter" id="counter">1 / 8</div>
+
+<script>
+  let current = 0;
+  const total = 8;
+  const slides = document.querySelectorAll('.slide');
+  const dots = document.querySelectorAll('.dot');
+  const counter = document.getElementById('counter');
+
+  function go(dir) {
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = (current + dir + total) % total;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+    counter.textContent = `${current + 1} / ${total}`;
+  }
+
+  // Click left/right half to navigate
+  document.getElementById('viewport').addEventListener('click', (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    go(x < rect.width / 2 ? -1 : 1);
+  });
+
+  // Keyboard
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === ' ') go(1);
+    if (e.key === 'ArrowLeft') go(-1);
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reel台本 - はじめましてMachiスタジオです</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Noto Sans JP', sans-serif; background: #0f0f1a; padding: 32px; color: #e0e0e0; }
+
+  h1 { text-align: center; font-size: 1.5rem; color: #fff; margin-bottom: 6px; }
+  .subtitle { text-align: center; color: #888; font-size: 0.82rem; margin-bottom: 10px; }
+  .meta { display: flex; justify-content: center; gap: 20px; margin-bottom: 32px; flex-wrap: wrap; }
+  .meta-item { background: rgba(255,255,255,0.06); border-radius: 8px; padding: 10px 18px; font-size: 0.8rem; color: #aaa; }
+  .meta-item strong { color: #fff; }
+
+  /* Section Title */
+  .section-title { font-size: 1rem; font-weight: 700; margin: 28px auto 14px; padding-left: 12px; border-left: 4px solid #e74c3c; max-width: 900px; color: #fff; }
+
+  /* Table */
+  table { width: 100%; max-width: 900px; margin: 0 auto 36px; border-collapse: separate; border-spacing: 0; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.4); }
+  th { background: #1a1a2e; color: #aaa; text-align: left; padding: 12px 16px; font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; }
+  th:first-child { width: 130px; white-space: nowrap; }
+  td { padding: 14px 16px; vertical-align: top; line-height: 1.7; font-size: 0.88rem; border-bottom: 1px solid rgba(255,255,255,0.06); }
+  tr:last-child td { border-bottom: none; }
+
+  /* Row Colors */
+  .row-hook td { background: linear-gradient(90deg, rgba(231,76,60,0.15), rgba(231,76,60,0.05)); }
+  .row-body1 td { background: rgba(255,255,255,0.03); }
+  .row-body2 td { background: rgba(255,255,255,0.06); }
+  .row-body3 td { background: rgba(255,255,255,0.03); }
+  .row-body4 td { background: rgba(255,255,255,0.06); }
+  .row-summary td { background: linear-gradient(90deg, rgba(108,92,231,0.15), rgba(108,92,231,0.05)); }
+  .row-cta td { background: linear-gradient(90deg, rgba(0,184,148,0.15), rgba(0,184,148,0.05)); }
+
+  .time-badge { display: inline-block; font-size: 0.7rem; padding: 3px 8px; border-radius: 99px; font-weight: 700; margin-bottom: 4px; }
+  .badge-hook { background: #e74c3c; color: #fff; }
+  .badge-body { background: rgba(255,255,255,0.12); color: #ccc; }
+  .badge-summary { background: #6c5ce7; color: #fff; }
+  .badge-cta { background: #00b894; color: #fff; }
+
+  .telop { font-weight: 900; font-size: 1rem; color: #fff; }
+  .telop-emphasis { color: #e74c3c; }
+
+  /* Caption Section */
+  .caption-box { max-width: 900px; margin: 0 auto 36px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 24px 28px; }
+  .caption-box h3 { font-size: 0.95rem; margin-bottom: 14px; color: #6c5ce7; }
+  .caption-text { font-size: 0.85rem; line-height: 2; color: #ccc; white-space: pre-line; }
+  .hashtags { margin-top: 18px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.08); font-size: 0.8rem; color: #6c5ce7; line-height: 1.8; }
+
+  /* Timeline Visual */
+  .timeline-bar { max-width: 900px; margin: 0 auto 28px; height: 32px; border-radius: 8px; overflow: hidden; display: flex; }
+  .tl-seg { display: flex; align-items: center; justify-content: center; font-size: 0.65rem; font-weight: 700; color: #fff; letter-spacing: 0.03em; }
+  .tl-hook { background: #e74c3c; flex: 2; }
+  .tl-b1 { background: #e67e22; flex: 4; }
+  .tl-b2 { background: #f1c40f; color: #333; flex: 4; }
+  .tl-b3 { background: #2ecc71; flex: 5; }
+  .tl-b4 { background: #3498db; flex: 5; }
+  .tl-sum { background: #6c5ce7; flex: 3; }
+  .tl-cta { background: #00b894; flex: 2; }
+</style>
+</head>
+<body>
+
+<h1>🎬 はじめましてMachiスタジオです</h1>
+<p class="subtitle">Instagram Reel 動画制作指示書（テロップ＋BGM形式 / 約25秒）</p>
+
+<div class="meta">
+  <div class="meta-item"><strong>形式:</strong> テロップ＋BGM（パターンB）</div>
+  <div class="meta-item"><strong>動画尺:</strong> 約25秒 / 7カット</div>
+  <div class="meta-item"><strong>映像:</strong> 宮城の街並み・働く風景</div>
+</div>
+
+<!-- Timeline Bar -->
+<p class="section-title" style="border-left-color: #f1c40f;">⏱️ タイムライン</p>
+<div class="timeline-bar">
+  <div class="tl-seg tl-hook">Hook</div>
+  <div class="tl-seg tl-b1">Body1</div>
+  <div class="tl-seg tl-b2">Body2</div>
+  <div class="tl-seg tl-b3">Body3</div>
+  <div class="tl-seg tl-b4">Body4</div>
+  <div class="tl-seg tl-sum">まとめ</div>
+  <div class="tl-seg tl-cta">CTA</div>
+</div>
+
+<!-- Script Table -->
+<p class="section-title">🗣️ テロップ指示書</p>
+<table>
+  <thead>
+    <tr><th>時間 / 構成</th><th>テロップ（デカ文字）</th><th>演出メモ</th></tr>
+  </thead>
+  <tbody>
+    <tr class="row-hook">
+      <td><span class="time-badge badge-hook">HOOK</span><br>0 - 2秒</td>
+      <td class="telop"><span class="telop-emphasis">宮城には、面白い仕事がない？</span></td>
+      <td style="font-size:0.8rem;color:#999;font-style:italic;">問いかけでスクロールを止める<br>背景：無機質なビル群</td>
+    </tr>
+    <tr class="row-body1">
+      <td><span class="time-badge badge-body">BODY 1</span><br>2 - 6秒</td>
+      <td class="telop"><span class="telop-emphasis">そう思ってた時期が私にもありました</span></td>
+      <td style="font-size:0.8rem;color:#999;font-style:italic;">フランクな共感<br>背景：少し暗めのオフィス風景</td>
+    </tr>
+    <tr class="row-body2">
+      <td><span class="time-badge badge-body">BODY 2</span><br>6 - 10秒</td>
+      <td class="telop"><span class="telop-emphasis">でも</span>、経営者と話すと全く違った</td>
+      <td style="font-size:0.8rem;color:#999;font-style:italic;">場面転換<br>背景：社長や職人の熱量ある作業風景</td>
+    </tr>
+    <tr class="row-body3">
+      <td><span class="time-badge badge-body">BODY 3</span><br>10 - 15秒</td>
+      <td class="telop">会社の熱い想いが求職者に<span class="telop-emphasis">「翻訳」</span>できてないだけってことに気付きました</td>
+      <td style="font-size:0.8rem;color:#999;font-style:italic;">「翻訳」を色変えで強調<br>気づきのシーン</td>
+    </tr>
+    <tr class="row-body4">
+      <td><span class="time-badge badge-body">BODY 4</span><br>15 - 20秒</td>
+      <td class="telop"><span class="telop-emphasis">だから・・・</span>採用・集客の翻訳者になります</td>
+      <td style="font-size:0.8rem;color:#999;font-style:italic;">決意表明<br>Machiスタジオのロゴを添える</td>
+    </tr>
+    <tr class="row-summary">
+      <td><span class="time-badge badge-summary">まとめ</span><br>20 - 23秒</td>
+      <td class="telop">「宮城で働く」を<span class="telop-emphasis">面白く。</span></td>
+      <td style="font-size:0.8rem;color:#999;font-style:italic;">フォントを大きく<br>力強いメッセージ</td>
+    </tr>
+    <tr class="row-cta">
+      <td><span class="time-badge badge-cta">CTA</span><br>23 - 25秒</td>
+      <td class="telop">共感したら<span class="telop-emphasis">フォロー</span>してね！</td>
+      <td style="font-size:0.8rem;color:#999;font-style:italic;">アカウントアイコン<br>＋フォローボタン風</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Caption -->
+<div class="caption-box">
+  <h3>📝 投稿キャプション</h3>
+  <div class="caption-text">はじめまして、Machiスタジオです。
+
+就活をしていた頃「宮城には面白い仕事なんてない」と思い込んでいました。
+
+でも地元経営者の方々と直接お話しすると、求人票からは想像もつかない「熱い想い」と「泥臭いドラマ」がありました。
+
+会社の魅力が「ない」のではありません。
+求職者に届く形に「翻訳」できていないだけでした。
+
+だから私たちは「採用・集客の翻訳者」として、Machiスタジオを立ち上げました。
+
+「なんとなく地元で就職した」を
+「ここで働きたい！」に変える。
+
+そんな挑戦のリアルを、ここから発信していきます。
+
+共感いただけましたら、保存・フォローで応援いただけると嬉しいです！</div>
+  <div class="hashtags">#宮城で働く #採用ブランディング #地方創生 #Uターン転職 #Machiスタジオ</div>
+</div>
+
+</body>
+</html>
