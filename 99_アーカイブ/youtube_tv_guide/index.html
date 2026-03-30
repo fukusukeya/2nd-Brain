@@ -194,7 +194,7 @@
     .question-card {
       width: 100%;
       border-radius: 20px;
-      overflow: hidden;
+      position: relative;
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       background: rgba(255, 255, 255, 0.95);
@@ -203,29 +203,31 @@
     }
 
     .question-header {
-      padding: 18px 24px;
-      display: flex;
-      align-items: center;
-      gap: 14px;
+      padding: 34px 24px 20px;
       border-bottom: 1px solid rgba(0, 0, 0, 0.06);
     }
 
     .question-badge {
+      position: absolute;
+      top: -16px;
+      left: -12px;
       font-family: 'Inter', sans-serif;
-      font-size: 11px;
+      font-size: 15px;
       font-weight: 800;
-      padding: 5px 14px;
+      padding: 8px 24px;
       border-radius: 100px;
       white-space: nowrap;
-      flex-shrink: 0;
       letter-spacing: 0.05em;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+      z-index: 10;
     }
 
     .question-text {
-      font-size: 18px;
+      font-size: 20px;
       font-weight: 800;
       line-height: 1.5;
       color: #1e293b;
+      display: block;
     }
 
     .question-body {
@@ -663,7 +665,7 @@
       <!-- ステップ1 -->
       <div class="question-card card-step1">
         <div class="question-header">
-          <span class="question-badge">ステップ1</span>
+          <span class="question-badge">下準備</span>
           <span class="question-text">まずはYouTubeアプリで動画を開こう！📲</span>
         </div>
         <div class="question-body">
