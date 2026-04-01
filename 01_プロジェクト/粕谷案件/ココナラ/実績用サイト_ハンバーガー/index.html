@@ -3,30 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BUDDY'S BURGER | EAT HAPPY!</title>
-    <meta name="description" content="地域のみんなの「相棒」！手作りのパティと地元野菜を使った、元気が出るボリューム満点なハンバーガーショップ「BUDDY'S BURGER」です。">
+    <title>DUDDY'S BURGER | Vintage Diner</title>
+    <!-- SEO対策: サイトのディスクリプション（検索結果に出る説明文） -->
+    <meta name="description" content="地域のみんなの最高に「DUDDY」な奴！手作りのパティと地元野菜を使った、元気が出るボリューム満点なハンバーガーショップ「DUDDY'S BURGER」です。">
     
-    <!-- Google Fonts -->
+    <!-- Google Fontsの読み込み（ポップなフォントを使用） -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Dela+Gothic+One&family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
     
-    <!-- CSS -->
+    <!-- CSSファイルの読み込み -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- ヘッダーエリア -->
     <header class="header">
         <div class="header__inner">
-            <h1 class="header__logo">BUDDY'S BURGER</h1>
+            <h1 class="header__logo">
+                <a href="#"><img src="images/logo-text.png" alt="DUDDY'S BURGER" width="300"></a>
+            </h1>
             <nav class="header__nav">
                 <ul class="header__list">
                     <li><a href="#concept">STORY</a></li>
                     <li><a href="#menu">MENU</a></li>
                     <li><a href="#shop">SHOP INFO</a></li>
                 </ul>
-                <a href="#order" class="btn btn--red header__btn">ORDER NOW!</a>
+                <a href="#shop" class="btn btn--red header__btn">ORDER NOW!</a>
             </nav>
-            <button class="hamburger" id="js-hamburger">
+            <!-- SP用ハンバーガーメニューボタン -->
+            <button class="hamburger-btn" id="js-hamburger">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -35,12 +40,11 @@
     </header>
 
     <main>
-        <!-- Hero Section -->
+        <!-- 1. Hero（ファーストビュー）セクション -->
         <section class="hero">
-            <div class="hero__bg-shape"></div>
             <div class="hero__inner wrapper">
                 <div class="hero__content">
-                    <p class="hero__subtitle">Your Local Best Buddy.</p>
+                    <p class="hero__subtitle">Your Local Best Duddy.</p>
                     <h2 class="hero__title">
                         <span class="text-stroke">EAT</span><br>
                         <span class="text-yellow">HAPPY!</span>
@@ -51,30 +55,28 @@
                     </div>
                 </div>
                 <div class="hero__image-wrap">
-                    <img src="images/hero.png" alt="Buddy's Burger" class="hero__image">
-                    <div class="hero__badge">
-                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                            <path id="circlePath" d="M 50, 50 m -40, 0 a 40,40 0 1,1 80,0 a 40,40 0 1,1 -80,0"></path>
-                            <text><textPath href="#circlePath">★ 100% BEEF PATTY ★ HAND MADE</textPath></text>
-                        </svg>
-                        <div class="hero__badge-inner">#1</div>
+                    <img src="images/hero.png" alt="Happy Burger" class="hero__image">
+                    <!-- 浮遊するメインロゴ画像 -->
+                    <div class="hero__badge-img">
+                        <img src="images/logo-main.png" alt="Duddy's Character" class="badge-character">
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Marquee -->
+        <!-- マーキー（流れる文字）アニメーション -->
         <div class="marquee-section">
             <div class="marquee-section__inner">
-                <span class="marquee-section__text">NO BURGER, NO LIFE. BEST LOCAL DINER BUDDY'S BURGER! CRAFTSMANSHIP & LOVE! </span>
-                <span class="marquee-section__text">NO BURGER, NO LIFE. BEST LOCAL DINER BUDDY'S BURGER! CRAFTSMANSHIP & LOVE! </span>
-                <span class="marquee-section__text">NO BURGER, NO LIFE. BEST LOCAL DINER BUDDY'S BURGER! CRAFTSMANSHIP & LOVE! </span>
+                <span class="marquee-section__text">NO BURGER, NO LIFE. BEST LOCAL DINER DUDDY'S BURGER! CRAFTSMANSHIP & LOVE! </span>
+                <span class="marquee-section__text">NO BURGER, NO LIFE. BEST LOCAL DINER DUDDY'S BURGER! CRAFTSMANSHIP & LOVE! </span>
+                <span class="marquee-section__text">NO BURGER, NO LIFE. BEST LOCAL DINER DUDDY'S BURGER! CRAFTSMANSHIP & LOVE! </span>
             </div>
         </div>
 
-        <!-- Concept Section -->
+        <!-- 2. Concept（想いや説明）セクション -->
         <section id="concept" class="concept section">
             <div class="wrapper concept__inner">
+                <!-- 左側の飾り画像のまとまり -->
                 <div class="concept__image-grid">
                     <div class="concept__img-box map-card">
                         <div class="map-card__icon">📍</div>
@@ -84,6 +86,7 @@
                         <div class="fun-card__text">Enjoy<br>Every<br>Bite!</div>
                     </div>
                 </div>
+                <!-- 右側のテキストコンテンツ -->
                 <div class="concept__content">
                     <h2 class="section-title">
                         <span class="section-title__en">OUR STORY</span>
@@ -92,7 +95,7 @@
                     <p class="concept__text">
                         学校帰り、仕事終わり、週末の特別なランチ。<br>
                         どんな時でも、お店のドアを開ければ香ばしいパティの匂いととびきりの笑顔が待っている。<br><br>
-                        BUDDY'S BURGERは、ただお腹を満たすだけじゃない、地域の誰もが元気になれるアメリカンダイナー。<br>
+                        DUDDY'S BURGERは、ただお腹を満たすだけじゃない、地域の誰もが元気になれるアメリカンダイナー。<br>
                         こだわり抜いた100%ビーフと、地元の新鮮野菜、そして愛情をたっぷり挟み込んで。<br><br>
                         さあ、今日はとびきり「HAPPY」な一口を！
                     </p>
@@ -100,7 +103,7 @@
             </div>
         </section>
 
-        <!-- Menu Section -->
+        <!-- 3. Menu（メニュー）セクション -->
         <section id="menu" class="menu section">
             <div class="wrapper">
                 <div class="menu__header">
@@ -111,24 +114,23 @@
                 </div>
 
                 <div class="menu__grid">
-                    <!-- Burger 1 -->
+                    <!-- メニュー：バーガー -->
                     <article class="menu-card">
                         <div class="menu-card__image-wrap">
                             <span class="menu-card__label">No.1</span>
-                            <img src="images/burger.png" alt="Buddy's Double Cheese" class="menu-card__image">
+                            <img src="images/burger.png" alt="Duddy's Double Cheese" class="menu-card__image">
                         </div>
                         <div class="menu-card__body">
-                            <h3 class="menu-card__title">BUDDY'S DOUBLE CHEESE</h3>
+                            <h3 class="menu-card__title">DUDDY'S DOUBLE CHEESE</h3>
                             <p class="menu-card__desc">溢れる肉汁！自家製パティ2枚と濃厚チェダーチーズがとろけ合う、当店人気No.1の看板メニュー。</p>
                             <div class="menu-card__price">¥1,280</div>
                         </div>
                     </article>
 
-                    <!-- Fries -->
+                    <!-- メニュー：ポテト（画像がない場合のCSSフォールバック） -->
                     <article class="menu-card">
-                        <div class="menu-card__image-wrap">
+                        <div class="menu-card__image-wrap fallback-fries">
                             <span class="menu-card__label label-yellow">HOT!</span>
-                            <img src="images/fries.png" alt="Crispy Fries" class="menu-card__image" id="fries-img" onerror="this.src=''; this.classList.add('fallback-fries');">
                         </div>
                         <div class="menu-card__body">
                             <h3 class="menu-card__title">CRISPY FRENCH FRIES</h3>
@@ -137,7 +139,7 @@
                         </div>
                     </article>
 
-                    <!-- Shake -->
+                    <!-- メニュー：シェイク -->
                     <article class="menu-card">
                         <div class="menu-card__image-wrap">
                             <span class="menu-card__label label-blue">SWEET</span>
@@ -153,8 +155,13 @@
             </div>
         </section>
 
-        <!-- CTA Section -->
+        <!-- 4. Shop Info（店舗情報＆CTA）セクション -->
         <section id="shop" class="shop section">
+            <!-- 
+                【🔰 セキュリティのポイント】
+                APIキー直書きを避けるため、Google Maps API等は使わず、
+                埋め込みたい場合は「Google Mapのシェアボタン ＞ iframe埋め込みコード」を利用してください。
+            -->
             <div class="wrapper">
                 <div class="shop__box">
                     <div class="shop__content">
@@ -165,6 +172,11 @@
                             <li><strong>CLOSE:</strong> TUESDAY</li>
                             <li><strong>ADDRESS:</strong> 宮城県仙台市〇〇区〇〇 1-2-3</li>
                         </ul>
+                        <!-- 
+                            【🔰 セキュリティのポイント】
+                            直接メールサーバーに送るフォームなどはJSで作らず（キー漏洩防止）、
+                            安全な外部サービス（Google FormやInstagram DMなど）のリンク先を指定してください。
+                        -->
                         <div class="shop__sns">
                             <a href="#" class="btn btn--red">FOLLOW INSTAGRAM</a>
                         </div>
@@ -174,21 +186,26 @@
         </section>
     </main>
 
+    <!-- フッター -->
     <footer class="footer">
         <div class="wrapper footer__inner">
-            <h2 class="footer__logo">BUDDY'S BURGER</h2>
-            <p class="footer__copy">&copy; 2026 BUDDY'S BURGER. All rights reserved.</p>
+            <h2 class="footer__logo">
+                <!-- こちらもメインロゴを大きく利用 -->
+                <img src="images/logo-main.png" alt="DUDDY'S BURGER" width="180">
+            </h2>
+            <p class="footer__copy">&copy; 2026 DUDDY'S BURGER. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- Simple JS for mobile menu -->
+    <!-- 初心者でも分かる最低限のJavaScript（スマホのメニュー開閉のみ） -->
     <script>
-        const hamburger = document.getElementById('js-hamburger');
-        const nav = document.querySelector('.header__nav');
+        const hamburgerBtn = document.getElementById('js-hamburger');
+        const globalNav = document.querySelector('.header__nav');
         
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('is-active');
-            nav.classList.toggle('is-active');
+        hamburgerBtn.addEventListener('click', () => {
+            // is-activeクラスを付け外しして、CSS側にメニューの表示を任せる
+            hamburgerBtn.classList.toggle('is-active');
+            globalNav.classList.toggle('is-active');
         });
     </script>
 </body>

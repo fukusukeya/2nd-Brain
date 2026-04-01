@@ -1,18 +1,18 @@
 @charset "UTF-8";
 
 /* =========================================
-   VARIABLES
+   VARIABLES（変数の定義）
 ========================================= */
 :root {
-  /* Colors */
-  --c-base: #FDF8E1;      /* レトロなオフホワイト */
-  --c-main: #1A1A1A;      /* 力強いブラック（枠線・文字） */
-  --c-red: #D9381E;       /* ケチャップレッド */
-  --c-yellow: #E6B325;    /* マスタードイエロー */
-  --c-blue: #3E8CD0;      /* レトロブルー（アクセント） */
+  /* Colors - ヴィンテージダイナー風の色合い */
+  --c-base: #FDF8E1;      /* レトロなオフホワイト背景 */
+  --c-main: #1A1A1A;      /* コミック風の太枠に使うブラック */
+  --c-red: #B03A2E;       /* DUDDY'Sロゴに合わせたヴィンテージレッド */
+  --c-yellow: #D4AC0D;    /* 落ち着かせたマスタードイエロー */
+  --c-blue: #2E86C1;      /* アクセント用のレトロブルー */
   --c-white: #FFFFFF;
 
-  /* Typography */
+  /* Typography - ポップなフォント設定 */
   --font-en: 'Bangers', display;
   --font-ja-bold: 'Dela Gothic One', sans-serif;
   --font-base: 'Noto Sans JP', sans-serif;
@@ -20,17 +20,16 @@
   /* Spacing */
   --space-s: 16px;
   --space-m: 32px;
-  --space-l: 64px;
   --space-xl: 120px;
 
-  /* Border & Shadow (Comic Style) */
+  /* Border & Shadow (コミック風のアメコミ演出) */
   --border-thick: 4px solid var(--c-main);
   --shadow-hard: 6px 6px 0px 0px var(--c-main);
   --shadow-hover: 2px 2px 0px 0px var(--c-main);
 }
 
 /* =========================================
-   RESET & BASE
+   RESET & BASE（ベースのリセット）
 ========================================= */
 * {
   margin: 0;
@@ -39,6 +38,7 @@
 }
 
 html {
+  /* ページ内リンクでスムーズに移動させる */
   scroll-behavior: smooth;
 }
 
@@ -48,14 +48,15 @@ body {
   background-color: var(--c-base);
   line-height: 1.6;
   overflow-x: hidden;
-  /* ドットパターンの背景 */
+  
+  /* レトロなドットパターンの背景 */
   background-image: radial-gradient(var(--c-main) 1px, transparent 1px);
   background-size: 20px 20px;
   background-attachment: fixed;
 }
 
-/* ドット背景を少し薄めるためのオーバーレイ */
 body::before {
+  /* ドット模様が強すぎるのを抑える半透明のカバー */
   content: '';
   position: fixed;
   top: 0;
@@ -71,14 +72,16 @@ a {
   color: inherit;
 }
 
-ul {
-  list-style: none;
-}
+ul { list-style: none; }
 
 img {
   max-width: 100%;
   height: auto;
   vertical-align: bottom;
+}
+
+/* クラスに border:none がない img だけに太枠をつける */
+img:not([style*="border:none"]) {
   border: var(--border-thick);
 }
 
@@ -88,18 +91,17 @@ img {
   padding: 0 20px;
 }
 
-.section {
-  padding: var(--space-xl) 0;
-}
+.section { padding: var(--space-xl) 0; }
 
 /* =========================================
-   TYPOGRAPHY
+   TYPOGRAPHY（文字の装飾）
 ========================================= */
 .text-yellow {
   color: var(--c-yellow);
-  -webkit-text-stroke: 2px var(--c-main);
-  text-shadow: 4px 4px 0px var(--c-main);
+  -webkit-text-stroke: 1.5px var(--c-main);
+  text-shadow: 3px 3px 0px var(--c-main);
 }
+
 .text-stroke {
   color: var(--c-base);
   -webkit-text-stroke: 4px var(--c-main);
@@ -107,7 +109,7 @@ img {
 }
 
 /* =========================================
-   BUTTONS
+   BUTTONS（共通ボタン）
 ========================================= */
 .btn {
   display: inline-block;
@@ -124,6 +126,7 @@ img {
   text-align: center;
 }
 
+/* ボタンのホバー（押し込み）アニメーション */
 .btn:active, .btn:hover {
   transform: translate(4px, 4px);
   box-shadow: var(--shadow-hover);
@@ -146,7 +149,7 @@ img {
 }
 
 /* =========================================
-   HEADER
+   HEADER（ヘッダー・ナビゲーション）
 ========================================= */
 .header {
   position: fixed;
@@ -168,12 +171,9 @@ img {
   padding: 0 20px;
 }
 
-.header__logo {
-  font-family: var(--font-en);
-  font-size: 2.2rem;
-  color: var(--c-red);
-  -webkit-text-stroke: 1px var(--c-main);
-  text-shadow: 2px 2px 0px var(--c-main);
+.header__logo img {
+  border: none;
+  width: 250px;
 }
 
 .header__nav {
@@ -190,15 +190,14 @@ img {
 }
 
 .header__list a {
-  position: relative;
   transition: color 0.3s;
 }
 .header__list a:hover {
   color: var(--c-red);
 }
 
-/* Hamburger */
-.hamburger {
+/* スマホ用ハンバーガーボタン */
+.hamburger-btn {
   display: none;
   background: none;
   border: none;
@@ -209,7 +208,7 @@ img {
   z-index: 101;
 }
 
-.hamburger span {
+.hamburger-btn span {
   display: block;
   position: absolute;
   width: 100%;
@@ -219,22 +218,23 @@ img {
   transition: 0.3s ease-in-out;
 }
 
-.hamburger span:nth-child(1) { top: 0; }
-.hamburger span:nth-child(2) { top: 13px; }
-.hamburger span:nth-child(3) { bottom: 0; }
+.hamburger-btn span:nth-child(1) { top: 0; }
+.hamburger-btn span:nth-child(2) { top: 13px; }
+.hamburger-btn span:nth-child(3) { bottom: 0; }
 
-.hamburger.is-active span:nth-child(1) {
+/* javascriptで .is-active が付与された時の動き */
+.hamburger-btn.is-active span:nth-child(1) {
   transform: translateY(13px) rotate(45deg);
 }
-.hamburger.is-active span:nth-child(2) {
+.hamburger-btn.is-active span:nth-child(2) {
   opacity: 0;
 }
-.hamburger.is-active span:nth-child(3) {
+.hamburger-btn.is-active span:nth-child(3) {
   transform: translateY(-13px) rotate(-45deg);
 }
 
 /* =========================================
-   HERO
+   HERO（ファーストビュー）
 ========================================= */
 .hero {
   position: relative;
@@ -242,7 +242,6 @@ img {
   padding-top: 100px;
   display: flex;
   align-items: center;
-  overflow: hidden;
 }
 
 .hero__inner {
@@ -250,8 +249,6 @@ img {
   align-items: center;
   justify-content: space-between;
   gap: 40px;
-  position: relative;
-  z-index: 2;
   width: 100%;
 }
 
@@ -300,43 +297,33 @@ img {
   background-color: var(--c-yellow);
 }
 
-/* Badge Sticker */
-.hero__badge {
+/* メインロゴをふわふわ浮かせるアニメーション付きバッジ */
+.hero__badge-img {
   position: absolute;
-  bottom: -30px;
-  left: -30px;
-  width: 140px;
-  height: 140px;
-  background-color: var(--c-blue);
-  border: var(--border-thick);
-  border-radius: 50%;
+  bottom: -40px;
+  left: -50px;
+  width: 220px;
+  height: 220px;
   display: flex;
   justify-content: center;
   align-items: center;
-  animation: spin 10s linear infinite;
-  box-shadow: 4px 4px 0px 0px var(--c-main);
+  animation: float 4s ease-in-out infinite;
 }
-.hero__badge svg {
-  position: absolute;
+.badge-character {
   width: 100%;
   height: 100%;
-  font-family: var(--font-en);
-  font-size: 12px;
-  fill: var(--c-white);
-}
-.hero__badge-inner {
-  font-family: var(--font-en);
-  font-size: 2.5rem;
-  color: var(--c-yellow);
-  -webkit-text-stroke: 1px var(--c-main);
+  border: none !important;
+  filter: drop-shadow(4px 4px 0px var(--c-main));
 }
 
-@keyframes spin {
-  100% { transform: rotate(360deg); }
+@keyframes float {
+  0% { transform: translateY(0px) rotate(-5deg); }
+  50% { transform: translateY(-15px) rotate(-2deg); }
+  100% { transform: translateY(0px) rotate(-5deg); }
 }
 
 /* =========================================
-   MARQUEE
+   MARQUEE（流れる文字）
 ========================================= */
 .marquee-section {
   background-color: var(--c-yellow);
@@ -365,7 +352,7 @@ img {
 }
 
 /* =========================================
-   SECTION TITLE
+   SECTION TITLE（共通見出し）
 ========================================= */
 .section-title {
   display: flex;
@@ -379,7 +366,7 @@ img {
   font-family: var(--font-en);
   font-size: 4rem;
   color: var(--c-red);
-  -webkit-text-stroke: 2px var(--c-main);
+  -webkit-text-stroke: 1.5px var(--c-main);
   text-shadow: 4px 4px 0px var(--c-main);
   transform: rotate(-2deg);
 }
@@ -428,7 +415,7 @@ img {
   top: 0;
   left: 0;
   transform: rotate(-5deg);
-  background-color: #A8D5BA;
+  background-color: #A8D5BA; /* 淡いグリーン */
 }
 .map-card h3 {
   font-family: var(--font-en);
@@ -459,7 +446,6 @@ img {
   align-items: flex-start;
   text-align: left;
 }
-
 .concept__text {
   font-size: 1.1rem;
   font-weight: 700;
@@ -470,7 +456,7 @@ img {
    MENU
 ========================================= */
 .menu {
-  background-color: #f1ebd0; /* 少し暗めのベース色で変化を */
+  background-color: #F1EBD0; /* 少し背景色を変止めて階層を出す */
   border-top: var(--border-thick);
   border-bottom: var(--border-thick);
 }
@@ -481,6 +467,7 @@ img {
   gap: 40px;
 }
 
+/* メニューカード全体のスタイル */
 .menu-card {
   background-color: var(--c-white);
   border: var(--border-thick);
@@ -505,8 +492,10 @@ img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border: none;
+  border: none !important;
 }
+
+/* ダミー画像用フォールバック（ポテト等） */
 .fallback-fries {
   background-color: var(--c-red);
 }
@@ -521,6 +510,7 @@ img {
   color: var(--c-yellow);
 }
 
+/* HOT / SWEET などのラベル */
 .menu-card__label {
   position: absolute;
   top: 10px;
@@ -562,7 +552,7 @@ img {
   font-size: 2.2rem;
   color: var(--c-red);
   text-align: right;
-  margin-top: auto;
+  margin-top: auto; /* 下に固定 */
 }
 
 /* =========================================
@@ -576,8 +566,6 @@ img {
   box-shadow: 12px 12px 0px 0px var(--c-yellow);
   padding: 60px 40px;
   text-align: center;
-  position: relative;
-  overflow: hidden;
 }
 
 .shop__title {
@@ -611,6 +599,7 @@ img {
   color: var(--c-base);
   padding: 60px 0 30px;
   border-top: 4px solid var(--c-yellow);
+  text-align: center;
 }
 
 .footer__inner {
@@ -620,10 +609,8 @@ img {
   gap: 20px;
 }
 
-.footer__logo {
-  font-family: var(--font-en);
-  font-size: 3rem;
-  color: var(--c-base);
+.footer__logo img {
+  border: none !important;
 }
 
 .footer__copy {
@@ -633,7 +620,7 @@ img {
 }
 
 /* =========================================
-   RESPONSIVE
+   RESPONSIVE (スマホ用レイアウト)
 ========================================= */
 @media screen and (max-width: 900px) {
   .hero__inner {
@@ -644,6 +631,11 @@ img {
   .hero__title {
     font-size: clamp(4rem, 15vw, 6rem);
   }
+  .hero__badge-img {
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -80px;
+  }
   .concept__inner {
     flex-direction: column-reverse;
   }
@@ -653,10 +645,11 @@ img {
 }
 
 @media screen and (max-width: 600px) {
+  /* スマホのときにナビゲーションを全画面メニューにする */
   .header__nav {
     position: fixed;
-    top: 70px; /* Header height offset */
-    left: -100%;
+    top: 70px;
+    left: -100%; /* 初期状態は画面外 */
     width: 100%;
     height: calc(100vh - 70px);
     background-color: var(--c-yellow);
@@ -665,6 +658,7 @@ img {
     transition: 0.3s;
     border-right: var(--border-thick);
   }
+  /* JSでis-activeがついたら画面内へスライド */
   .header__nav.is-active {
     left: 0;
   }
@@ -673,13 +667,13 @@ img {
     text-align: center;
     font-size: 2rem;
   }
-  .hamburger {
-    display: block;
+  .hamburger-btn {
+    display: block; /* ハンバーガーボタンを表示 */
+  }
+  .header__logo img {
+    width: 200px;
   }
 
-  .menu__grid {
-    grid-template-columns: 1fr;
-  }
   .concept__image-grid {
     height: 300px;
   }
@@ -690,5 +684,8 @@ img {
   .fun-card {
     width: 150px;
     height: 150px;
+  }
+  .menu__grid {
+    grid-template-columns: 1fr;
   }
 }
