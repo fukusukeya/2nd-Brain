@@ -1,0 +1,588 @@
+/* style.css (Jofuku Sushi style) */
+@import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;700;800&display=swap');
+
+:root {
+  --primary-color: #8a3324; /* 伝統的な朱色・ベンガラ色 */
+  --text-dark: #2c2825; /* 墨よりも少し温かみのあるこげ茶・濃炭色 */
+  --text-light: #7a7369; /* 和風の薄墨・グレー */
+  --bg-main: #fcfaf5; /* 和紙のようなごく薄い生成り色（きなり） */
+  --bg-section: #f5f2eb; /* 少し色味のある生成り色 */
+  --border-color: #e5dfd3; /* 上品な区切り線 */
+  
+  --font-mincho: 'Shippori Mincho', serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-mincho);
+  color: var(--text-dark);
+  background-color: var(--bg-main);
+  line-height: 2.2; /* 和風レイアウトらしくゆったりと */
+  letter-spacing: 0.1em;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* リンクとボタン */
+a {
+  color: var(--text-dark);
+  text-decoration: none;
+}
+
+.reserve-btn {
+  background: var(--bg-main);
+  color: var(--primary-color);
+  padding: 10px 24px;
+  border: 1px solid var(--primary-color);
+  text-decoration: none;
+  font-family: var(--font-mincho);
+  font-size: 14px;
+  letter-spacing: 0.15em;
+  transition: all 0.3s ease;
+  writing-mode: horizontal-tb;
+}
+
+.reserve-btn:hover {
+  background: var(--primary-color);
+  color: #fff;
+}
+
+/* ヘルパークラス */
+.vertical-text {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  letter-spacing: 0.3em;
+  line-height: 2.5;
+}
+
+.text-center { text-align: center; }
+.container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+.section-padding { padding: 100px 0; }
+
+/* ヘッダー */
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  background: rgba(250, 245, 235, 0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+}
+
+.logo {
+  color: #fff;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.6);
+  writing-mode: vertical-rl;
+  position: absolute;
+  top: 40px;
+  left: 40px;
+}
+
+.header-right {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+}
+
+/* ヒーローセクション */
+.hero {
+  position: relative;
+  height: 90vh;
+  background-image: url('../images/hero_sashimi.png');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.35);
+}
+
+.hero-copy-container {
+  position: relative;
+  z-index: 2;
+  height: auto;
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* コンテンツ幅ギリギリ左端に寄せる */
+}
+
+.hero-copy {
+  color: #fff;
+  font-size: 36px;
+  font-weight: 500;
+  text-shadow: 0 4px 15px rgba(0,0,0,0.8);
+  border-right: 2px solid rgba(255,255,255,0.7);
+  padding-right: 20px;
+  white-space: nowrap; /* 確実に2行で収めさせる */
+}
+
+/* お知らせバー */
+.news-bar {
+  background: var(--bg-section);
+  color: var(--text-dark);
+  padding: 15px 20px;
+  text-align: center;
+  font-size: 14px;
+  border-bottom: 1px solid var(--border-color);
+  border-top: 1px solid var(--border-color);
+}
+
+/* 共通セクション見出し（落款風など和のあしらい） */
+.section-title {
+  text-align: center;
+  font-size: 26px;
+  color: var(--primary-color);
+  margin-bottom: 50px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 1px;
+  height: 40px;
+  background: var(--primary-color);
+  margin: 20px auto 0;
+}
+
+/* お店の想い (コンセプト) */
+.concept-section {
+  background: var(--bg-main);
+  text-align: center;
+}
+
+.concept-text {
+  font-size: 16px;
+  max-width: 600px;
+  margin: 0 auto 60px;
+}
+
+.concept-images {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.concept-images img {
+  width: 250px;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 2px;
+}
+
+/* 伝統的な左右交互レイアウト（Zパターンを和風にマイルド化） */
+.wa-row {
+  display: flex;
+  align-items: stretch;
+  margin-bottom: 120px;
+  background: #fff;
+  border: 1px solid var(--border-color);
+}
+
+.wa-row.reverse {
+  flex-direction: row-reverse;
+}
+
+.wa-image {
+  flex: 1;
+}
+
+.wa-image img {
+  width: 100%;
+  height: 100%;
+  min-height: 500px;
+  object-fit: cover;
+}
+
+.wa-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 60px;
+  position: relative;
+}
+
+/* 和風の四角い枠線のあしらい */
+.wa-content::before {
+  content: '';
+  position: absolute;
+  top: 20px; left: 20px; right: 20px; bottom: 20px;
+  border: 1px solid var(--border-color);
+  pointer-events: none;
+}
+
+.wa-title {
+  font-size: 24px;
+  color: var(--primary-color);
+  margin-bottom: 30px;
+  writing-mode: vertical-rl;
+  letter-spacing: 0.3em;
+  height: 200px; /* 縦書きの高さを確保 */
+  border-left: 1px solid var(--primary-color);
+  padding-left: 20px;
+}
+
+.wa-text {
+  font-size: 15px;
+  line-height: 2.2;
+  text-align: center;
+  color: var(--text-dark);
+}
+
+/* お品書き・サービス（リスト型で和の品書き風に） */
+.menu-section {
+  background: var(--bg-section);
+}
+
+.menu-list {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  margin-bottom: 30px;
+  padding: 30px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+}
+
+.menu-item img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 50%; /* 盆や器を想起させる丸型 */
+  border: 1px solid var(--border-color);
+  margin-right: 40px;
+}
+
+.menu-info h3 {
+  font-size: 22px;
+  color: var(--primary-color);
+  margin-bottom: 15px;
+  margin-top: 0;
+  border-bottom: 1px dashed var(--border-color);
+  padding-bottom: 10px;
+}
+
+.menu-info p {
+  font-size: 15px;
+  margin: 0;
+  color: var(--text-dark);
+}
+
+/* 店舗案内 */
+.info-section {
+  background: var(--bg-main);
+}
+
+.info-box {
+  border: 2px solid var(--border-color);
+  padding: 60px 40px;
+  text-align: center;
+  background: #fff;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.info-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+
+.info-table th, .info-table td {
+  padding: 20px;
+  border-bottom: 1px dashed var(--border-color);
+  font-size: 15px;
+}
+
+.info-table th {
+  text-align: left;
+  color: var(--text-light);
+  font-weight: normal;
+  width: 120px;
+}
+
+.info-table td {
+  text-align: left;
+}
+
+.phone-number {
+  font-size: 32px;
+  color: var(--primary-color);
+  display: block;
+  margin-top: 10px;
+  letter-spacing: 0.1em;
+}
+
+/* フッター */
+.footer {
+  background: var(--text-dark); /* 墨色で和の重厚感を演出 */
+  color: var(--bg-main);
+  padding: 80px 0 30px;
+}
+.footer-logo {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 32px;
+  letter-spacing: 0.15em;
+  color: #fff;
+  margin: 0;
+  text-align: center;
+  line-height: 1.6;
+}
+.footer-nav {
+  list-style: none;
+  padding: 0;
+  margin: 40px auto;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  font-size: 15px;
+  flex-wrap: wrap; /* 横書き用の折り返し指定 */
+}
+.footer-nav li {
+  letter-spacing: 0.1em; /* 横書き用に自然な字間へ戻す */
+}
+.footer-nav a {
+  color: rgba(255, 255, 255, 0.85); /* ほんのり透ける白 */
+  text-decoration: none;
+  transition: opacity 0.3s;
+}
+.footer-nav a:hover {
+  opacity: 1;
+  color: #fff;
+}
+.footer-copy {
+  text-align: center;
+  border-top: 1px dashed rgba(255, 255, 255, 0.2); /* 控えめな白枠線 */
+  padding-top: 20px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+}
+
+/* ドロップダウンメニュー (CSS Only) */
+.dropdown-menu {
+  position: fixed;
+  top: 75px; /* ヘッダーのおおよその高さ */
+  left: 0;
+  width: 100%;
+  background: rgba(250, 245, 235, 0.98);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(0,0,0,0.05);
+  box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+  display: none;
+  z-index: 990;
+}
+#menu-toggle:checked ~ .dropdown-menu {
+  display: block;
+  animation: fadeIn 0.3s ease;
+}
+.dropdown-menu ul {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0;
+}
+.dropdown-menu li a {
+  display: block;
+  padding: 15px 40px;
+  color: var(--text-dark);
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+  border-bottom: 1px dashed rgba(0,0,0,0.05);
+}
+.dropdown-menu li a:hover {
+  background: rgba(0,0,0,0.02);
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==================================
+   下層ページ共通・独自スタイル
+================================== */
+
+.page-header {
+  height: 40vh;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.page-header::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.4);
+}
+.page-title {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  font-size: 36px;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-shadow: 0 4px 15px rgba(0,0,0,0.8);
+}
+
+/* --- お品書き詳細 (menu.html) --- */
+.menu-page-section {
+  background: var(--bg-main);
+}
+.menu-category-title {
+  text-align: center;
+  font-size: 24px;
+  color: var(--primary-color);
+  margin: 60px 0 30px;
+  letter-spacing: 0.15em;
+  border-bottom: 1px dashed var(--border-color);
+  padding-bottom: 15px;
+}
+.menu-category-title:first-child {
+  margin-top: 0;
+}
+.menu-page-list {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.menu-page-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end; /* 点線と並ぶように下揃え */
+  margin-bottom: 25px;
+  font-size: 16px;
+  background: transparent;
+}
+.menu-page-name {
+  color: var(--text-dark);
+  font-weight: 500;
+  padding-right: 15px;
+  z-index: 2;
+}
+.menu-page-desc {
+  font-size: 13px;
+  color: var(--text-light);
+  display: block;
+  margin-top: 5px;
+}
+.menu-page-dots {
+  flex-grow: 1;
+  border-bottom: 1px dotted rgba(0,0,0,0.2);
+  margin: 0 10px 8px; /* 文字の下辺に合わせる */
+}
+.menu-page-price {
+  color: var(--text-dark);
+  font-size: 15px;
+  padding-left: 15px;
+  z-index: 2;
+  white-space: nowrap;
+}
+
+/* --- お知らせ一覧 (news.html) --- */
+.news-page-section {
+  background: #fff;
+}
+.news-list {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.news-item {
+  display: flex;
+  align-items: center;
+  padding: 25px 20px;
+  border-bottom: 1px solid var(--border-color);
+  text-decoration: none;
+  transition: background 0.3s;
+}
+.news-item:hover {
+  background: rgba(0,0,0,0.02);
+}
+.news-date {
+  font-size: 14px;
+  color: var(--text-light);
+  min-width: 120px;
+}
+.news-badge {
+  font-size: 12px;
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  padding: 2px 10px;
+  border-radius: 50px;
+  margin-right: 20px;
+  white-space: nowrap;
+}
+.news-title {
+  font-size: 16px;
+  color: var(--text-dark);
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .news-item {
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+  .news-date {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .news-badge {
+    margin-bottom: 10px;
+  }
+  .menu-page-dots {
+    display: none; /* スマホでは点線を消すか短くする */
+  }
+  .menu-page-item {
+    flex-direction: column;
+    align-items: flex-start;
+    border-bottom: 1px dashed var(--border-color);
+    padding-bottom: 15px;
+  }
+  .menu-page-price {
+    padding-left: 0;
+    margin-top: 10px;
+    align-self: flex-end;
+  }
+}

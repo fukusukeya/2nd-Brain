@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>お品書き | サカナと酒菜 だ粋</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- Fixed Header (index共通) -->
+  <header class="header">
+    <div class="logo"><a href="index.html" style="color:inherit; text-decoration:none;">だ粋</a></div>
+    
+    <div class="header-right" style="display: flex; align-items: center; gap: 20px;">
+      <!-- ご予約・電話番号ボタン -->
+      <a href="tel:080-4190-3233" class="reserve-btn" style="display: flex; flex-direction: column; align-items: center; padding: 10px 24px; line-height: 1.3;">
+        <span style="font-size: 11px; font-weight: normal; margin-bottom: 2px;">ご予約・お問い合わせ</span>
+        <span style="font-size: 18px; font-weight: bold; font-family: 'Shippori Mincho', serif; letter-spacing: 1px;">080-4190-3233</span>
+      </a>
+      
+      <!-- ハンバーガーメニュー -->
+      <input type="checkbox" id="menu-toggle" style="display: none;">
+      <label for="menu-toggle" class="hamburger" style="cursor: pointer; padding: 5px 0 5px 15px; border-left: 1px solid rgba(0,0,0,0.1); display: flex; flex-direction: column; justify-content: center; align-items: center; transition: opacity 0.3s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">
+        <div style="width: 32px; height: 18px; position: relative; display: flex; flex-direction: column; justify-content: space-between; margin-bottom: 6px;">
+          <span style="display: block; width: 100%; height: 2px; background: var(--text-dark); border-radius: 2px;"></span>
+          <span style="display: block; width: 100%; height: 2px; background: var(--text-dark); border-radius: 2px;"></span>
+          <span style="display: block; width: 100%; height: 2px; background: var(--text-dark); border-radius: 2px;"></span>
+        </div>
+        <span style="font-size: 10px; font-weight: 500; color: var(--text-dark); letter-spacing: 1px;">MENU</span>
+      </label>
+      
+      <!-- Dropdown Menu -->
+      <nav class="dropdown-menu">
+        <ul style="list-style:none; padding:0; margin:0;">
+          <li><a href="index.html#top">トップ</a></li>
+          <li><a href="index.html#concept">お店の想い</a></li>
+          <li><a href="index.html#chef">店主ご挨拶</a></li>
+          <li><a href="index.html#procurement">毎朝の仕入れ</a></li>
+          <li><a href="menu.html">お品書き（詳細）</a></li>
+          <li><a href="index.html#omotenashi">おもてなし</a></li>
+          <li><a href="news.html">お知らせ一覧</a></li>
+          <li><a href="index.html#info">店舗案内</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Page Hero -->
+  <div class="page-header" style="background-image: url('assets/images/hero_sashimi.png');">
+    <h1 class="page-title">お品書き</h1>
+  </div>
+
+  <!-- Menu Content -->
+  <section class="section-padding menu-page-section">
+    <div class="container">
+      
+      <h2 class="menu-category-title">本日のお造り・地魚</h2>
+      <div class="menu-page-list">
+        <div class="menu-page-item">
+          <div class="menu-page-name">
+            三崎港直送 地魚のお刺身盛り合わせ
+            <span class="menu-page-desc">その日に仕入れた最高の鮮魚を三種～五種盛りで。</span>
+          </div>
+          <div class="menu-page-dots"></div>
+          <div class="menu-page-price">1,500円〜</div>
+        </div>
+        <div class="menu-page-item">
+          <div class="menu-page-name">
+            活さざえのお造り / つぼ焼き
+            <span class="menu-page-desc">磯の香りが楽しめる新鮮なさざえです。</span>
+          </div>
+          <div class="menu-page-dots"></div>
+          <div class="menu-page-price">880円</div>
+        </div>
+        <div class="menu-page-item">
+          <div class="menu-page-name">
+            本日の煮付け（金目鯛など）
+            <span class="menu-page-desc">こだわりのたれでふっくらと煮上げています。</span>
+          </div>
+          <div class="menu-page-dots"></div>
+          <div class="menu-page-price">時価</div>
+        </div>
+      </div>
+
+      <h2 class="menu-category-title">一品料理・酒菜</h2>
+      <div class="menu-page-list">
+        <div class="menu-page-item">
+          <div class="menu-page-name">自家製 だし巻き玉子</div>
+          <div class="menu-page-dots"></div>
+          <div class="menu-page-price">660円</div>
+        </div>
+        <div class="menu-page-item">
+          <div class="menu-page-name">鮮魚のなめろう</div>
+          <div class="menu-page-dots"></div>
+          <div class="menu-page-price">750円</div>
+        </div>
+        <div class="menu-page-item">
+          <div class="menu-page-name">旬野菜の天ぷら盛り合わせ</div>
+          <div class="menu-page-dots"></div>
+          <div class="menu-page-price">980円</div>
+        </div>
+      </div>
+      
+      <h2 class="menu-category-title">お飲み物</h2>
+      <div class="menu-page-list" style="margin-bottom: 80px;">
+        <div class="menu-page-item">
+          <div class="menu-page-name">生ビール（マスターズドリーム）</div>
+          <div class="menu-page-dots"></div>
+          <div class="menu-page-price">680円</div>
+        </div>
+        <div class="menu-page-item">
+          <div class="menu-page-name">厳選 日本酒 各種</div>
+          <div class="menu-page-dots"></div>
+          <div class="menu-page-price">800円〜</div>
+        </div>
+        <div class="menu-page-item">
+          <div class="menu-page-name">本格焼酎（芋・麦）グラス</div>
+          <div class="menu-page-dots"></div>
+          <div class="menu-page-price">550円〜</div>
+        </div>
+      </div>
+
+      <!-- サービス案内 (釣った魚持ち込み調理) -->
+      <div style="text-align:center; padding: 40px; border: 1px solid var(--border-color); background: #fff;">
+        <h3 style="color: var(--primary-color); font-size: 22px; margin-top: 0;">【要予約】釣った魚のお持ち込み調理</h3>
+        <p style="font-size:15px; line-height:2; margin-bottom: 0;">
+        お客様が釣り上げた三崎周辺の新鮮なお魚をお持ち込みいただき、<br>プロの職人が最適な調理法で美味しくご提供いたします。<br>
+        <span style="font-size:13px; color:var(--text-light); display:block; margin-top: 15px;">※調理代金はお魚の種類と量により要相談となります。<br>※平日限定・14:30頃にお持ち込みいただき、夕食時にご来店ください。<br>まずはお気軽にお電話にてご相談ください。</span>
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- フッター -->
+  <footer class="footer">
+    <div class="container">
+      <h2 class="footer-logo">サカナと酒菜<br>だ粋</h2>
+      <ul class="footer-nav">
+        <li><a href="index.html#top">トップ</a></li>
+        <li><a href="index.html#concept">お店の想い</a></li>
+        <li><a href="index.html#chef">店主ご挨拶</a></li>
+        <li><a href="menu.html">お品書き</a></li>
+        <li><a href="news.html">お知らせ</a></li>
+        <li><a href="index.html#info">店舗案内</a></li>
+      </ul>
+      <div class="footer-copy">
+        &copy; 2026 サカナと酒菜 だ粋. All Rights Reserved.
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
