@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 600px;
+    height: 600px;
+    overflow: hidden;
+    position: relative;
+    background: #fff;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  }
+  .icon-motif-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 420px;
+    height: 380px;
+    z-index: 1;
+    /* Lower opacity so text is readable over it */
+    opacity: 0.15;
+  }
+  .icon-motif {
+    width: 100%;
+    height: 100%;
+    background-image: url('file:///Users/kasuyatooru/.gemini/antigravity/brain/855451b6-e7b0-4411-8c22-f70b0a8a979e/fukusukeya_icon_minimal_1775106191516.png');
+    background-size: 1350px;
+    background-position: -180px -430px; 
+    background-repeat: no-repeat;
+  }
+  .icon-motif::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 90px;
+    background: #fff;
+  }
+  
+  .text-block {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -46%);
+    z-index: 2;
+    text-align: center;
+    width: 100%;
+  }
+  .main-text {
+    font-size: 72px;
+    font-weight: 800;
+    color: #2F3B4A;
+    letter-spacing: 0.08em;
+  }
+  .sub-text {
+    font-size: 22px;
+    font-weight: 600;
+    color: #4A5568;
+    letter-spacing: 0.3em;
+    margin-top: 5px;
+  }
+</style>
+</head>
+<body>
+  <div class="icon-motif-container">
+    <div class="icon-motif"></div>
+  </div>
+  <div class="text-block">
+    <div class="main-text">FUKUSUKEYA</div>
+    <div class="sub-text">WEB DESIGN</div>
+  </div>
+</body>
+</html>

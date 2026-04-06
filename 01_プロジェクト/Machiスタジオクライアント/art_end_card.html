@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>アート株式会社 エンドカード</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Outfit:wght@400;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            /* 1920x1080（16:9）のアスペクト比をシミュレート */
+            width: 1920px;
+            height: 1080px;
+            font-family: 'Noto Sans JP', sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+            color: #ffffff;
+        }
+
+        /* 背景の装飾 */
+        .bg-glow-1 {
+            position: absolute;
+            top: -20%;
+            left: -10%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .bg-glow-2 {
+            position: absolute;
+            bottom: -20%;
+            right: -10%;
+            width: 900px;
+            height: 900px;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        /* メインコンテナ */
+        .container {
+            z-index: 10;
+            text-align: center;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 60px;
+        }
+
+        /* キャッチコピー */
+        .catchphrase {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .subtitle {
+            font-size: 2.5rem;
+            font-weight: 500;
+            color: #94a3b8;
+            letter-spacing: 0.1em;
+        }
+
+        .title {
+            font-size: 5rem;
+            font-weight: 900;
+            letter-spacing: 0.05em;
+            background: linear-gradient(to right, #ffffff, #e2e8f0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        /* アクションエリア（QRと検索） */
+        .action-container {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            margin-top: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 40px 60px;
+            border-radius: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        /* QRコードセクション */
+        .qr-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .qr-image {
+            width: 220px;
+            height: 220px;
+            background-color: white;
+            padding: 10px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        .qr-label {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #38bdf8;
+            letter-spacing: 0.05em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .qr-label::before, .qr-label::after {
+            content: '';
+            display: inline-block;
+            width: 20px;
+            height: 2px;
+            background-color: #38bdf8;
+        }
+
+        .divider-vertical {
+            width: 2px;
+            height: 250px;
+            background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0.2), rgba(255,255,255,0));
+        }
+
+        /* 検索セクション */
+        .search-section {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 30px;
+        }
+
+        .search-message {
+            font-size: 2rem;
+            font-weight: 500;
+            color: #cbd5e1;
+            text-align: left;
+            line-height: 1.5;
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: #ffffff;
+            border-radius: 100px;
+            padding: 15px 20px 15px 40px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            width: 100%;
+        }
+
+        .search-text {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #1e293b;
+            letter-spacing: 0.05em;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-grow: 1;
+        }
+
+        .search-cursor {
+            width: 4px;
+            height: 3rem;
+            background-color: #3b82f6;
+            animation: blink 1s step-end infinite;
+        }
+
+        .search-button {
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            color: white;
+            font-size: 1.8rem;
+            font-weight: 700;
+            padding: 15px 40px;
+            border-radius: 100px;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* フッター */
+        .footer {
+            margin-top: 60px;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .company-logo {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            color: #94a3b8;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-glow-1"></div>
+    <div class="bg-glow-2"></div>
+
+    <div class="container">
+        <div class="catchphrase">
+            <div class="subtitle">ともに、新しい価値を築こう。</div>
+            <div class="title">私たちの想いに共感する仲間を、お待ちしています。</div>
+        </div>
+
+        <div class="action-container">
+            <!-- QRコード -->
+            <div class="qr-section">
+                <!-- Google Chart APIを使ってQRコードを自動生成 -->
+                <img src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=https://www.art-sksk.jp/recruit&choe=UTF-8" alt="採用ページQRコード" class="qr-image">
+                <div class="qr-label">スマホでエントリー</div>
+            </div>
+
+            <div class="divider-vertical"></div>
+
+            <!-- 検索窓 -->
+            <div class="search-section">
+                <div class="search-message">
+                    詳しい募集要項や社風については<br>
+                    採用特設サイトをご覧ください。
+                </div>
+                <div class="search-box">
+                    <div class="search-text">アート株式会社 採用<div class="search-cursor"></div></div>
+                    <div class="search-button">🔍 検索</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="company-logo">ART CORPORATION</div>
+        </div>
+    </div>
+</body>
+</html>

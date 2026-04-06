@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 600px;
+    height: 600px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  .icon-motif {
+    position: relative;
+    width: 380px;
+    height: 380px;
+    background-image: url('file:///Users/kasuyatooru/.gemini/antigravity/brain/855451b6-e7b0-4411-8c22-f70b0a8a979e/fukusukeya_icon_minimal_1775106191516.png');
+    background-size: 1350px;
+    background-position: -200px -430px; 
+    background-repeat: no-repeat;
+  }
+  .icon-motif::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 130px; /* 隠す幅 */
+    background: #fff;
+  }
+  .logo-text {
+    font-size: 40px;
+    font-weight: 800;
+    color: #2d3748;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .sub-text {
+    font-size: 14px;
+    color: #718096;
+    letter-spacing: 0.25em;
+    margin-top: 10px;
+    font-weight: 600;
+  }
+</style>
+</head>
+<body>
+  <div class="icon-motif"></div>
+  <div class="logo-text">FUKUSUKEYA</div>
+  <div class="sub-text">WEB DESIGN & LOGO</div>
+</body>
+</html>

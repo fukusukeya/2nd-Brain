@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 1000px;
+    height: 500px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  }
+  .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+  .icon-motif {
+    position: relative;
+    width: 420px;
+    height: 380px;
+    background-image: url('file:///Users/kasuyatooru/.gemini/antigravity/brain/855451b6-e7b0-4411-8c22-f70b0a8a979e/fukusukeya_icon_minimal_1775106191516.png');
+    background-size: 1350px;
+    background-position: -180px -430px; 
+    background-repeat: no-repeat;
+  }
+  .icon-motif::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 90px; /* 隠す幅 */
+    background: #fff;
+  }
+  .text-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center "WEB DESIGN" under "FUKUSUKEYA" */
+    margin-top: -10px; /* Minor visual tweaking */
+  }
+  .main-text {
+    font-size: 78px;
+    font-weight: 800;
+    color: #2F3B4A; /* Match the icon color */
+    letter-spacing: 0.05em;
+  }
+  .sub-text {
+    font-size: 26px;
+    font-weight: 500;
+    color: #4A5568;
+    letter-spacing: 0.15em;
+    margin-top: 5px;
+  }
+</style>
+</head>
+<body>
+  <div class="logo-container">
+    <div class="icon-motif"></div>
+    <div class="text-block">
+      <div class="main-text">FUKUSUKEYA</div>
+      <div class="sub-text">WEB DESIGN</div>
+    </div>
+  </div>
+</body>
+</html>
