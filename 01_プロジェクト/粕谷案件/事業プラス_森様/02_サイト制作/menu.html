@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>お品書き | サカナと酒菜 だ粋</title>
+  <meta name="description" content="三崎の新鮮な地魚を贅沢に盛り付けたお造りや、心温まるこだわりの一品料理など、お酒によく合う「サカナと酒菜 だ粋」のお品書きをご紹介します。">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -150,6 +151,19 @@
       </div>
     </div>
   </footer>
+
+  <!-- Scroll to Top Button -->
+  <a href="#top" class="scroll-top" id="scrollTopBtn" title="トップへ戻る">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+  </a>
+
+  <script>
+    window.addEventListener('scroll', function() {
+      var btn = document.getElementById('scrollTopBtn');
+      if (window.scrollY > 300) btn.classList.add('show');
+      else btn.classList.remove('show');
+    });
+  </script>
 
 </body>
 </html>

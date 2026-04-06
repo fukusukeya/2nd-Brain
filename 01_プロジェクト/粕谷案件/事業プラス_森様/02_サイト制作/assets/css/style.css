@@ -47,13 +47,15 @@ a {
   font-family: var(--font-mincho);
   font-size: 14px;
   letter-spacing: 0.15em;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
   writing-mode: horizontal-tb;
 }
 
 .reserve-btn:hover {
   background: var(--primary-color);
   color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(138, 51, 36, 0.2);
 }
 
 /* ヘルパークラス */
@@ -583,5 +585,49 @@ a {
     padding-left: 0;
     margin-top: 10px;
     align-self: flex-end;
+  }
+}
+
+/* --- Scroll to Top Button --- */
+.scroll-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background: var(--bg-main);
+  border: 1px solid var(--border-color);
+  color: var(--text-dark);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s ease;
+  z-index: 999;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.scroll-top.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.scroll-top:hover {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+@media (max-width: 768px) {
+  .scroll-top {
+    bottom: 20px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
   }
 }

@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>サカナと酒菜 だ粋 | 三崎の隠れ家</title>
+  <meta name="description" content="三崎の裏道にひっそり佇む、旬の魚と酒菜の隠れ家「サカナと酒菜 だ粋」。確かな目利きで選んだ新鮮な地魚と、心温まるこだわりの創作和食をお楽しみください。">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -49,10 +50,10 @@
   <!-- Hero Section -->
   <section class="hero" id="top">
     <div class="hero-copy-container">
-      <div class="hero-copy vertical-text">
+      <h1 class="hero-copy vertical-text">
         三崎の裏道にひっそり佇む、<br>
         旬の魚と酒菜の隠れ家。
-      </div>
+      </h1>
     </div>
   </section>
 
@@ -74,9 +75,9 @@
       </p>
       
       <div class="concept-images">
-        <img src="assets/images/chef_market.png" alt="仕入れ">
-        <img src="assets/images/concept_interior.png" alt="内装">
-        <img src="assets/images/dish_creations.png" alt="料理">
+        <img src="assets/images/chef_market.png" alt="仕入れ" loading="lazy">
+        <img src="assets/images/concept_interior.png" alt="内装" loading="lazy">
+        <img src="assets/images/dish_creations.png" alt="料理" loading="lazy">
       </div>
     </div>
   </section>
@@ -88,7 +89,7 @@
       <div class="wa-row">
         <div class="wa-image">
           <!-- ※実際にはここに森様の顔写真を配置します -->
-          <img src="assets/images/concept_interior.png" alt="店主紹介">
+          <img src="assets/images/concept_interior.png" alt="店主紹介" loading="lazy">
         </div>
         <div class="wa-content">
           <h3 class="wa-title">店主ご挨拶</h3>
@@ -104,7 +105,7 @@
 
       <div class="wa-row reverse" id="procurement">
         <div class="wa-image">
-          <img src="assets/images/chef_market.png" alt="毎朝の仕入れ">
+          <img src="assets/images/chef_market.png" alt="毎朝の仕入れ" loading="lazy">
         </div>
         <div class="wa-content">
           <h3 class="wa-title">毎朝の仕入と目利き</h3>
@@ -131,7 +132,7 @@
       <div class="menu-list">
         
         <div class="menu-item">
-          <img src="assets/images/hero_sashimi.png" alt="お品書き">
+          <img src="assets/images/hero_sashimi.png" alt="お品書き" loading="lazy">
           <div class="menu-info">
             <h3>本格和食とお造り</h3>
             <p>
@@ -156,7 +157,7 @@
       <div class="menu-list">
 
         <div class="menu-item">
-          <img src="assets/images/dish_creations.png" alt="持ち込み調理">
+          <img src="assets/images/dish_creations.png" alt="持ち込み調理" loading="lazy">
           <div class="menu-info">
             <h3>釣った魚、捌きます</h3>
             <p>
@@ -167,7 +168,7 @@
         </div>
 
         <div class="menu-item">
-          <img src="assets/images/bento_service.png" alt="出張料理">
+          <img src="assets/images/bento_service.png" alt="出張料理" loading="lazy">
           <div class="menu-info">
             <h3>出張料理・特別仕出し</h3>
             <p>
@@ -246,6 +247,19 @@
       </div>
     </div>
   </footer>
+
+  <!-- Scroll to Top Button -->
+  <a href="#top" class="scroll-top" id="scrollTopBtn" title="トップへ戻る">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+  </a>
+
+  <script>
+    window.addEventListener('scroll', function() {
+      var btn = document.getElementById('scrollTopBtn');
+      if (window.scrollY > 300) btn.classList.add('show');
+      else btn.classList.remove('show');
+    });
+  </script>
 
 </body>
 </html>
