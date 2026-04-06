@@ -1,0 +1,8 @@
+# Ignore python virtual environment
+pdfenv/
+
+# Ignore macOS system files
+.DS_Store
+
+# Ignore generated PDF images if they are temporary, though keeping them might be fine.
+# Let's keep them and the python script just in case.

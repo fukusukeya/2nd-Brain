@@ -1,0 +1,592 @@
+/*==================================================
+  Base Styles & Variables (2-3 Colors Strict)
+==================================================*/
+:root {
+    --primary-color: #5ab1d3;
+    /* メインカラー (80%): 爽やかな水色寄りブルー */
+    --primary-dark: #3a91b3;
+    --accent-color: #ff9d00;
+    /* サブカラー (20%): 目立つオレンジ系の黄色（CTA等に限定） */
+    --accent-dark: #cc7e00;
+
+    --text-main: #2b2b2b;
+    /* 文字色: 視認性の高い濃いグレー */
+    --text-light: #555555;
+
+    --bg-main: #ffffff;
+    /* ベース背景色: 白 */
+    --bg-light: #f0f7f9;
+    /* セクション用淡いメインカラー（純白と区別する程度） */
+    --border-color: #dceaf0;
+
+    --font-base: 'Zen Kaku Gothic New', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-base);
+    color: var(--text-main);
+    background-color: var(--bg-main);
+    line-height: 1.8;
+    font-size: 16px;
+    letter-spacing: 0.05em;
+    -webkit-font-smoothing: antialiased;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    /* スマホ・タブレット中心の構成。PCでも中央寄せの幅狭レイアウト */
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-padding {
+    padding: 60px 0;
+}
+
+.py-large {
+    padding: 80px 0;
+}
+
+.mt-large {
+    margin-top: 40px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-white {
+    color: #ffffff !important;
+}
+
+.text-dark {
+    color: var(--text-main) !important;
+}
+
+.bg-light {
+    background-color: var(--bg-light);
+}
+
+.bg-accent {
+    background-color: var(--accent-color);
+}
+
+.bg-white {
+    background-color: #ffffff;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    line-height: 1.4;
+    font-weight: 700;
+}
+
+.section-title {
+    font-size: 1.4rem;
+    text-align: center;
+    margin-bottom: 40px;
+    color: var(--accent-color);
+}
+
+.strong-text {
+    font-weight: 700;
+    color: var(--accent-color);
+    font-size: 1.1rem;
+}
+
+/*==================================================
+  Buttons
+==================================================*/
+.btn {
+    display: inline-block;
+    border-radius: 50px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(246, 155, 130, 0.3);
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 18px 30px;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(246, 155, 130, 0.4);
+}
+
+.btn-large {
+    width: 100%;
+    padding: 20px 20px;
+}
+
+.btn-main {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.btn-sub {
+    display: block;
+    font-size: 0.85rem;
+    margin-top: 5px;
+    opacity: 0.9;
+}
+
+/*==================================================
+  Hero Section
+==================================================*/
+.hero {
+    background: url('hero_bg.jpg') center/cover no-repeat;
+    position: relative;
+    padding: 100px 0 80px;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.75);
+    /* テキストを読みやすくするための白オーバーレイ */
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.hero-title {
+    font-size: 1.5rem;
+    margin-bottom: 25px;
+}
+
+.hero-title .highlight {
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.hero-subtitle {
+    font-size: 1.05rem;
+    margin-bottom: 40px;
+    color: var(--text-light);
+}
+
+.cta-wrap {
+    margin-top: 20px;
+}
+
+/*==================================================
+  Empathy Section
+==================================================*/
+.chat-bubbles {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.bubble-wrap {
+    display: flex;
+}
+
+.bubble-wrap.right {
+    justify-content: flex-end;
+}
+
+.bubble {
+    background-color: #fff;
+    padding: 15px 25px;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    position: relative;
+    display: inline-block;
+}
+
+.bubble-wrap:not(.right) .bubble {
+    border-bottom-left-radius: 5px;
+}
+
+.bubble-wrap.right .bubble {
+    border-bottom-right-radius: 5px;
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.empathy-text p {
+    margin-bottom: 15px;
+}
+
+/*==================================================
+  About Section
+==================================================*/
+.about .lead {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 25px;
+}
+
+.about p {
+    margin-bottom: 20px;
+}
+
+/*==================================================
+  Strengths Section
+==================================================*/
+.card-list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.card {
+    background-color: #fff;
+    padding: 35px 25px 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.03);
+    position: relative;
+    text-align: center;
+}
+
+.card-num {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 40px;
+    background-color: var(--accent-color);
+    color: var(--text-main);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: 700;
+    box-shadow: 0 3px 10px rgba(121, 154, 130, 0.4);
+}
+
+.card-title {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: var(--primary-dark);
+}
+
+.card p {
+    font-size: 0.95rem;
+    text-align: left;
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+/*==================================================
+  Merits Section
+==================================================*/
+.check-list {
+    list-style: none;
+    background-color: var(--bg-light);
+    padding: 30px 25px;
+    border-radius: 12px;
+}
+
+.check-list li {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 20px;
+}
+
+.check-list li:last-child {
+    margin-bottom: 0;
+}
+
+.check-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 2px;
+    color: var(--primary-color);
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.message-box {
+    border: 2px solid var(--accent-color);
+    padding: 25px 20px;
+    border-radius: 12px;
+    background-color: #fff;
+}
+
+/*==================================================
+  Voice Section
+==================================================*/
+.voice-card {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.voice-quote {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.voice-attr {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.voice-hr {
+    border: none;
+    border-top: 1px dashed rgba(255, 255, 255, 0.4);
+    margin: 20px 0;
+}
+
+.voice-text {
+    font-size: 0.95rem;
+}
+
+/*==================================================
+  Courses Section
+==================================================*/
+.course-box {
+    background-color: #fff;
+    border: 3px solid var(--primary-color);
+    border-radius: 15px;
+    padding: 35px 25px;
+    text-align: center;
+    position: relative;
+}
+
+.course-box::before {
+    content: 'おすすめ';
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 5px 20px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+}
+
+.course-name {
+    font-size: 1.3rem;
+    color: var(--primary-dark);
+    margin-bottom: 10px;
+}
+
+.course-price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 25px;
+}
+
+.course-details {
+    text-align: left;
+}
+
+.detail-item {
+    background-color: var(--bg-light);
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.detail-item:last-child {
+    margin-bottom: 0;
+}
+
+.detail-item h4 {
+    color: var(--accent-color);
+    margin-bottom: 10px;
+    font-size: 1.05rem;
+}
+
+.detail-item p {
+    font-size: 0.95rem;
+}
+
+/*==================================================
+  Steps Section
+==================================================*/
+.step-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.step-item {
+    background-color: #fff;
+    border: 1px solid var(--border-color);
+    padding: 30px 25px;
+    border-radius: 12px;
+    text-align: center;
+    width: 100%;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+}
+
+.step-label {
+    display: inline-block;
+    background-color: var(--text-main);
+    color: #fff;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.step-title {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: var(--primary-dark);
+}
+
+.step-item p {
+    font-size: 0.95rem;
+}
+
+.step-arrow {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin: 15px 0;
+}
+
+/*==================================================
+  Contact/CTA Section
+==================================================*/
+.cta-section {
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.cta-lead {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+.cta-info {
+    padding: 30px 25px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+}
+
+.info-title {
+    color: var(--accent-color);
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+.info-list {
+    list-style: none;
+}
+
+.info-list li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+}
+
+.info-list li::before {
+    content: '・';
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+}
+
+.cta-message {
+    font-size: 1.05rem;
+    margin-bottom: 20px;
+}
+
+/*==================================================
+  Footer
+==================================================*/
+.footer {
+    background-color: var(--bg-main);
+    padding: 60px 0 40px;
+}
+
+.footer-message {
+    margin-bottom: 60px;
+}
+
+.footer-message p {
+    margin-bottom: 15px;
+}
+
+.copyright {
+    font-size: 0.8rem;
+    color: var(--text-light);
+}
+
+/*==================================================
+  Responsive Tweaks
+==================================================*/
+@media (max-width: 480px) {
+    .section-padding {
+        padding: 50px 0;
+    }
+
+    .hero-title {
+        font-size: 1.3rem;
+    }
+
+    .hero-title .highlight {
+        font-size: 1.6rem;
+    }
+
+    .card,
+    .course-box,
+    .step-item {
+        padding: 25px 20px;
+    }
+}
