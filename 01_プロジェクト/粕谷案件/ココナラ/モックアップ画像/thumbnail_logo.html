@@ -19,22 +19,19 @@
   .overlay {
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(255, 255, 255, 0.85); /* Strong white wash */
+    background: rgba(255, 255, 255, 0.85);
     z-index: 1;
   }
-  
-  /* Geometric Accent */
   .accent-shape {
     position: absolute;
     top: -100px;
     right: -100px;
-    width: 500px;
-    height: 500px;
-    background: rgba(230, 126, 34, 0.05);
+    width: 600px;
+    height: 600px;
+    background: rgba(230, 126, 34, 0.04);
     border-radius: 50%;
     z-index: 2;
   }
-
   .content-wrapper {
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
@@ -43,16 +40,10 @@
     box-sizing: border-box;
   }
 
-  /* TOP SECTION */
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-  }
-
+  /* BADGE */
   .badge-container {
-    width: 120px;
-    height: 120px;
+    width: 130px;
+    height: 130px;
     background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
     border-radius: 50%;
     display: flex;
@@ -65,15 +56,15 @@
     border: 5px solid #fff;
     transform: rotate(-10deg);
     position: absolute;
-    top: 20px;
+    top: 30px;
     left: 40px;
     z-index: 20;
   }
-  .badge-top { font-size: 14px; letter-spacing: 0.1em; margin-bottom:-2px;}
-  .badge-main { font-size: 28px; margin: 0; line-height: 1; text-shadow: 1px 1px 2px rgba(0,0,0,0.2); }
-  .badge-bottom { font-size: 13px; margin-top: 2px;}
+  .badge-top { font-size: 13px; letter-spacing: 0.1em; margin-bottom:-2px;}
+  .badge-main { font-size: 30px; margin: 0; line-height: 1; text-shadow: 1px 1px 2px rgba(0,0,0,0.2); }
+  .badge-bottom { font-size: 14px; margin-top: 2px;}
 
-  /* MAIN TYPOGRAPHY */
+  /* TYPOGRAPHY */
   .title-section {
     position: absolute;
     top: 150px;
@@ -83,7 +74,7 @@
     align-items: flex-start;
   }
   .sub-catch {
-    font-size: 32px;
+    font-size: 34px;
     font-weight: 800;
     color: #e67e22;
     letter-spacing: 0.1em;
@@ -102,8 +93,8 @@
     z-index: 4;
   }
   .main-lp {
-    font-family: 'Times New Roman', Times, serif; 
-    font-size: 240px;
+    font-family: 'Hiragino Mincho ProN', 'Yu Mincho', serif; 
+    font-size: 190px;
     font-weight: 900;
     color: #2F3B4A;
     line-height: 1;
@@ -112,7 +103,7 @@
     text-shadow: 2px 2px 0px #fff, 4px 4px 0px rgba(0,0,0,0.1);
   }
   .main-seisaku {
-    font-size: 80px;
+    font-size: 70px;
     font-weight: 900;
     letter-spacing: 0.05em;
     margin-left: 10px;
@@ -120,11 +111,11 @@
     text-shadow: 2px 2px 0px #fff, 4px 4px 0px rgba(0,0,0,0.1);
   }
 
-  /* FEATURES LIST (Right side) */
+  /* FEATURES LIST */
   .features {
     position: absolute;
-    top: 180px;
-    right: 30px;
+    top: 170px;
+    right: 20px;
     display: flex;
     flex-direction: column;
     gap: 18px;
@@ -133,9 +124,9 @@
   .feature-item {
     background: #2F3B4A;
     color: #fff;
-    font-size: 34px;
+    font-size: 28px;
     font-weight: 800;
-    padding: 16px 40px 16px 30px;
+    padding: 16px 40px 16px 25px;
     border-radius: 8px 0 0 8px; 
     box-shadow: -5px 8px 15px rgba(0,0,0,0.2);
     display: flex;
@@ -144,8 +135,8 @@
     clip-path: polygon(0 0, 100% 0, 96% 50%, 100% 100%, 0 100%);
     width: 530px;
   }
-  .feature-item:nth-child(2) { margin-right: 15px; width: 510px; background: #3c495c; }
-  .feature-item:nth-child(3) { margin-right: 30px; width: 490px; background: #4a5a70; }
+  .feature-item:nth-child(2) { margin-right: 15px; width: 540px; background: #3c495c; }
+  .feature-item:nth-child(3) { margin-right: 30px; width: 510px; background: #4a5a70; }
   .feature-icon {
     color: #e67e22;
     font-size: 40px;
@@ -156,40 +147,30 @@
   /* MOCKUPS */
   .mockups {
     position: absolute;
-    bottom: -30px;
+    bottom: 20px;
     left: 40px;
     display: flex;
     align-items: flex-end;
+    gap: -40px;
   }
-  .mockup-pc {
-    width: 600px;
-    object-fit: contain;
-    mix-blend-mode: multiply;
-    z-index: 2;
-    margin-right: -130px;
-    transform: translateY(0px) rotate(-1deg);
-  }
-  .mockup-sp {
-    width: 200px;
-    height: 420px;
+  .mockup-img {
+    width: 250px;
+    height: 250px;
     object-fit: cover;
-    object-position: top center;
-    border-radius: 16px 16px 0 0;
-    border: 6px solid #2d3748;
-    border-bottom: none;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+    border-radius: 12px;
+    border: 8px solid #fff;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
     background: #fff;
-    z-index: 3;
-    position: relative;
   }
-  .sp1 { transform: scale(1.05) translateY(-20px) rotate(-3deg); margin-right: -30px;}
-  .sp2 { transform: scale(0.9) translateY(10px) rotate(4deg); }
+  .mockup1 { z-index: 3; transform: scale(1.1) rotate(-6deg); margin-right: -40px; }
+  .mockup2 { z-index: 4; transform: scale(1.15) translateY(-30px); margin-right: -40px; }
+  .mockup3 { z-index: 2; transform: scale(1.0) translateY(10px) rotate(5deg); }
 
   /* PRICE SECTION */
   .price-box {
     position: absolute;
-    bottom: 70px;
-    right: 50px;
+    bottom: 50px;
+    right: 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -237,16 +218,16 @@
   <div class="content-wrapper">
     <div class="header">
       <div class="badge-container">
-        <div class="badge-top">デザイン面</div>
-        <div class="badge-main">待ち</div>
-        <div class="badge-bottom">時間ゼロ</div>
+        <div class="badge-top">商用利用</div>
+        <div class="badge-main">完全</div>
+        <div class="badge-bottom">OK</div>
       </div>
     </div>
 
     <div class="title-section">
-      <div class="sub-catch">戦略設計のプロが作成</div>
+      <div class="sub-catch">ブランドの顔となる</div>
       <div class="main-title-box">
-        <span class="main-lp">LP</span>
+        <span class="main-lp">ロゴ</span>
         <span class="main-seisaku">制作</span>
       </div>
     </div>
@@ -254,28 +235,28 @@
     <div class="features">
       <div class="feature-item">
         <span class="feature-icon">✓</span>
-        最短3日で動くデモ提示
+        ヒアリングからコンセプト設計
       </div>
       <div class="feature-item">
         <span class="feature-icon">✓</span>
-        スマホ最適化＆SEO対策
+        名刺やWebに使える各種データ納品
       </div>
       <div class="feature-item">
         <span class="feature-icon">✓</span>
-        オリジナルデザイン
+        ご納得いくまでデザイン調整
       </div>
     </div>
 
     <div class="mockups">
-      <img class="mockup-pc" src="file:///Users/kasuyatooru/.gemini/antigravity/brain/855451b6-e7b0-4411-8c22-f70b0a8a979e/mockup_hamburger.png" />
-      <img class="mockup-sp sp1" src="file:///Users/kasuyatooru/Product/2nd-Brain/01_プロジェクト/粕谷案件/ココナラ/モックアップ画像/sp_paint.png" />
-      <img class="mockup-sp sp2" src="file:///Users/kasuyatooru/Product/2nd-Brain/01_プロジェクト/粕谷案件/ココナラ/モックアップ画像/sp_aeris.png" />
+      <img class="mockup-img mockup1" src="file:///Users/kasuyatooru/.gemini/antigravity/brain/855451b6-e7b0-4411-8c22-f70b0a8a979e/logo_mockup_corporate_1775201474765.png" />
+      <img class="mockup-img mockup2" src="file:///Users/kasuyatooru/Product/2nd-Brain/01_プロジェクト/粕谷案件/ココナラ/モックアップ画像/00_プロフィール画像.png" />
+      <img class="mockup-img mockup3" src="file:///Users/kasuyatooru/.gemini/antigravity/brain/855451b6-e7b0-4411-8c22-f70b0a8a979e/logo_mockup_cafe_1775201532429.png" />
     </div>
 
     <div class="price-box">
-      <div class="price-label">集客にコミットする高品質設計</div>
+      <div class="price-label">想いをカタチにするプロデザイン</div>
       <div class="price-value-container">
-        <span class="price-number">50,000</span>
+        <span class="price-number">20,000</span>
         <span class="price-yen">円〜</span>
       </div>
     </div>

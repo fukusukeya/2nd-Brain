@@ -4,140 +4,173 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>キッズコーチング「きみそら」 - 理論で解決する子育ての悩み</title>
+    <title>キッズコーチング「Kimi Sora」 - 理論で解決する子育ての悩み</title>
     <meta name="description"
         content="子育ての「モヤモヤ」を理論と実績のあるプロに相談してみませんか？気質診断と理論から学ぶキッズコーチングで、迷わず自信を持って子どもと向き合うことができるようになります。まずは30分無料説明会へ。">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Yomogi&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
     <header class="hero">
-        <div class="container hero-content">
-            <div style="margin-bottom: 30px;">
-                <img src="header_logo.jpg" alt="きみそら ロゴ" style="max-height: 80px; width: auto; border-radius: 8px;">
+        <!-- 巨大なアシンメトリー背景（波・雲形） -->
+        <div class="hero-bg-wave">
+            <svg viewBox="0 0 100 100" preserveAspectRatio="none" style="width: 100%; height: 100%; fill: #8ccbe1;">
+                <path d="M0,0 L35,0 C45,30 20,60 40,100 L0,100 Z"></path>
+            </svg>
+        </div>
+
+        <!-- 波形背景の中心に絶対配置するロゴ -->
+        <img src="logo_white_fixed.png" alt="Kimi Sora ロゴ" class="hero-logo-absolute">
+
+        <div class="container hero-grid">
+            
+            <div class="hero-left">
+                <!-- テキスト側の配置バランスを維持するためのスペース -->
             </div>
-            <h1 class="hero-title">
-                <span class="highlight">子どもの発達や個性を理解し</span><br>
-                子育てを楽しめるお手伝い
-            </h1>
-            <p class="hero-subtitle">
-                理論から学ぶキッズコーチング「きみそら」
-            </p>
-            <div class="cta-wrap">
-                <a href="#contact" class="btn btn-primary">
-                    <span class="btn-main">まずは30分、無料説明会で<br>ホッと一息つきませんか？</span>
-                    <span class="btn-sub">スマホから1分で簡単予約</span>
-                </a>
+
+            <div class="hero-right">
+                <h1 class="hero-title">
+                    <span class="highlight hero-text-pc">子どもの発達や個性を理解し</span>
+                    <span class="u-keep hero-text-pc">子育てを楽しめるお手伝い</span>
+                </h1>
+                <p class="hero-subtitle">
+                    理論から学ぶキッズコーチング「Kimi Sora」
+                </p>
+                <div class="cta-wrap">
+                    <a href="#contact" class="btn btn-primary hero-btn-pc">
+                        <span class="btn-main hero-text-pc">まずは30分無料説明会でホッと一息つきませんか？</span>
+                        <span class="hero-text-pc hero-btn-sub">スマホから1分で簡単予約</span>
+                    </a>
+                </div>
             </div>
+
         </div>
     </header>
 
-    <section class="empathy section-padding bg-light">
-        <div class="container">
-            <h2 class="section-title">こんなお悩み、ひとりで抱え込んでいませんか？</h2>
+    <!-- 波型セパレーター -->
+    <div class="wave-divider wave-bottom" style="margin-top: -1px;">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" style="fill: #cfebf5;">
+            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"></path>
+        </svg>
+    </div>
+
+    <section class="empathy section-padding bg-light bg-pattern" style="position: relative; overflow: hidden;">
+        <!-- 装飾要素（絶対配置） -->
+        <img src="deco_baby.png" alt="赤ちゃん" class="empathy-deco deco-right">
+        <img src="deco_child.png" alt="遊ぶ子ども" class="empathy-deco deco-left">
+
+        <div class="container" style="position: relative; z-index: 2;">
+            <h2 class="section-title"><span class="decor-title">こんなお悩み、ひとりで抱え込んでいませんか？</span></h2>
+
+            <div class="text-center" style="margin-bottom: 30px;">
+                <img src="empathy_img.png" alt="子育てに悩むママのイラスト" class="img-fluid" style="max-width: 280px;">
+            </div>
 
             <div class="chat-bubbles">
                 <div class="bubble-wrap">
                     <div class="bubble">「私の子育て、これで合っているのかな…」</div>
                 </div>
                 <div class="bubble-wrap right">
-                    <div class="bubble">「子どもにどう接していいか分からず、<br>つい感情的になってしまう」</div>
+                    <div class="bubble"><span class="u-keep">「子どもにどう</span><span class="u-keep">接していいか分からず、</span><span class="u-keep">つい感情的になってしまう」</span></div>
                 </div>
                 <div class="bubble-wrap">
-                    <div class="bubble">「周りの人に相談しても、<br>なんだかスッキリしない」</div>
+                    <div class="bubble"><span class="u-keep">「周りの人に相談しても</span><span class="u-keep">なんだかスッキリしない」</span></div>
                 </div>
             </div>
 
             <div class="empathy-text text-center">
                 <p>毎日がんばっているからこそ、悩みは尽きないですよね。</p>
                 <p class="strong-text">大丈夫です、あなたが悪いのではありません。</p>
-                <p>ほんの少し「子どもの気質」と「理論」を知るだけで、<br>子育ては驚くほど、ふっと心が軽くなります。</p>
+                <p><span class="u-keep">ほんの少し</span><span class="u-keep">「子どもの気質」と「理論」を知るだけで</span><span class="u-keep">子育ては驚くほど</span><span class="u-keep">ふっと心が軽くなります。</span></p>
             </div>
         </div>
     </section>
 
     <section class="about section-padding">
         <div class="container">
-            <h2 class="section-title">キッズコーチング®って？</h2>
+            <h2 class="section-title"><span class="decor-title">キッズコーチング®って？</span></h2>
 
             <div class="about-content text-center">
                 <img src="about_img.jpg" alt="キッズコーチングのイメージ" class="img-fluid" style="margin-bottom: 30px;">
-                <p class="lead">その子の発達や気質に合わせた<br>アプローチを身につけられる教育理論</p>
-                <p>失敗を恐れず積極的にチャレンジできる子どもや、<br>自立心や自信を持った子どもを育てるためにも、<br>キッズコーチング®はおすすめの方法です。</p>
+                <p class="lead"><span class="u-keep">その子の発達や気質に合わせた</span><span class="u-keep">アプローチを身につけられる教育理論</span></p>
+                <p><span class="u-keep">失敗を恐れず</span><span class="u-keep">積極的にチャレンジできる子どもや</span><span class="u-keep">自立心や自信を持った子どもを</span><span class="u-keep">育てるためにも</span><span class="u-keep">キッズコーチング®は</span><span class="u-keep">おすすめの方法です。</span></p>
             </div>
         </div>
     </section>
 
     <section class="strengths section-padding bg-light">
         <div class="container">
-            <h2 class="section-title">なぜ、「きみそら」のコーチングが選ばれるのか？</h2>
+            <h2 class="section-title">なぜ、「Kimi Sora」のコーチングが選ばれるのか？</h2>
 
             <div class="card-list">
                 <div class="card">
                     <div class="card-num">1</div>
                     <h3 class="card-title">理論に基づいた確かなコーチング</h3>
-                    <p>根拠のないアドバイスや、スピリチュアルなアプローチはありません。すべて理論ベースで、納得のできる解決策を一緒に見つけます。</p>
+                    <p>根拠のないアドバイスやスピリチュアルなアプローチはありません。すべて理論ベースで納得のできる解決策を一緒に見つけます。</p>
                 </div>
 
                 <div class="card">
                     <div class="card-num">2</div>
                     <h3 class="card-title">プロも頼る確かな実績</h3>
-                    <p>保育士さんなど、子どもに関わるプロフェッショナルからも「どう接するべきか」と相談を受ける確かな経験があります。</p>
+                    <p>保育士さんなど子どもに関わるプロフェッショナルからも「どう接するべきか」と相談を受ける確かな経験があります。</p>
                 </div>
 
                 <div class="card">
                     <div class="card-num">3</div>
                     <h3 class="card-title">大人向け研修で培った「伝える力」</h3>
-                    <p>企業研修や大人向けのコーチング、そして講師育成を行ってきた経験から、「分かりやすく、そして今日から実践しやすい」形でお伝えすることを得意としています。</p>
+                    <p>企業研修や大人向けのコーチング、そして講師育成を行ってきた経験から「分かりやすくそして今日から実践しやすい」形でお伝えすることを得意としています。</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="merits section-padding">
-        <div class="container">
-            <h2 class="section-title">「きみそら」のコーチングを受講することで、こんないいことがあります。</h2>
+    <section class="merits section-padding" style="position: relative; z-index: 1;">
+        <!-- 新規追加のイラスト -->
+        <img src="deco_mom.png" alt="メモを取るママ" class="empathy-deco" style="top: -10px; right: 3%; width: 250px; z-index: -1;">
+
+        <div class="container" style="position: relative; z-index: 2;">
+            <h2 class="section-title">「Kimi Sora」のコーチングを受講することで、こんないいことがあります。</h2>
 
             <ul class="check-list">
-                <li>自分の子どもへの接し方が明確になり、日々の育児にすぐ応用できる。</li>
-                <li>関わる親御さんたち（お客様）の満足度を上げ、笑顔を増やせる。</li>
-                <li>本業（保育や教育など）でのお客様との信頼関係が深まり、離脱率を下げることができる。</li>
-                <li>あとから「これが仕事になる！」と気づき、本業のプラスに活かすことができる。</li>
+                <li>自分の子どもへの接し方が明確になり日々の育児にすぐ応用できる。</li>
+                <li>関わる親御さんたち（お客様）の満足度を上げ笑顔を増やせる。</li>
+                <li>本業（保育や教育など）でのお客様との信頼関係が深まり離脱率を下げることができる。</li>
+                <li>あとから「これが仕事になる！」と気づき本業のプラスに活かすことができる。</li>
             </ul>
 
             <div class="message-box text-center mt-large">
-                <p>「ご自身の収益」よりも「誰かの役に立ちたい」という、<br>温かい貢献の想いを持つ方に、特におすすめの講座です。</p>
+                <p><span class="u-keep">「ご自身の収益」よりも</span><span class="u-keep">「誰かの役に立ちたい」という</span><span class="u-keep">温かい貢献の想いを持つ方に</span><span class="u-keep">特におすすめの講座です。</span></p>
             </div>
         </div>
     </section>
 
-    <section class="voice section-padding bg-accent text-white">
+    <section class="voice section-padding bg-accent">
         <div class="container">
             <h2 class="section-title text-white">受講者の声</h2>
 
             <div class="voice-card">
-                <p class="voice-quote">「経験談ではなく、理論に沿って論理的に説明できるようになりました」</p>
+                <p class="voice-quote">「経験談ではなく理論に沿って論理的に説明できるようになりました」</p>
                 <p class="voice-attr">（子育て支援 本業・ママ）</p>
                 <hr class="voice-hr">
-                <p class="voice-text">単なる「私の時はこうだった」というアドバイスではなく、「なぜそうするのか」を自分の言葉で、理論的に伝えられるようになります。</p>
+                <p class="voice-text">単なる「私の時はこうだった」というアドバイスではなく「なぜそうするのか」を自分の言葉で理論的に伝えられるようになります。</p>
             </div>
         </div>
     </section>
 
-    <section class="courses section-padding bg-light">
+    <section class="courses section-padding bg-light bg-pattern">
         <div class="container">
-            <h2 class="section-title">講座内容・ご相談</h2>
+            <h2 class="section-title"><span class="decor-title">講座内容・ご相談</span></h2>
 
             <div class="card-list">
                 <!-- 講座1：キッズコーチング体験講座 -->
                 <div class="card" style="border: 2px solid var(--primary-color);">
                     <h3 class="card-title" style="color: var(--primary-dark);">キッズコーチング®体験会</h3>
                     <p class="text-center" style="font-size: 0.9rem; margin-bottom: 15px;">［キッズコーチング®のミニ講座］</p>
-                    <p>その子の発達段階や個性、気質に合った接し方が学べる体験講座です。</p>
+                    <p>その子の発達段階や個性・気質に合った接し方が学べる体験講座です。</p>
                     <p class="strong-text mt-large"
                         style="font-size: 1.2rem; background-color: var(--accent-color); color: #fff; padding: 12px 20px; border-radius: 50px; text-align: center; display: inline-block; width: 100%; box-sizing: border-box;">
                         協会規定価格：90分 3,300円</p>
@@ -146,8 +179,8 @@
 
                 <!-- 講座2：キッズコーチングアドバイザー資格取得 -->
                 <div class="card" style="border: 2px solid var(--primary-color);">
-                    <h3 class="card-title" style="color: var(--primary-dark);">キッズコーチングアドバイザー講座<br>（2級資格認定）</h3>
-                    <p>ご自身の子育てや、仕事に活かせるだけでなく、子育ての相談やアドバイスができるよう理論とスキルが学べる、資格認定講座です。</p>
+                    <h3 class="card-title" style="color: var(--primary-dark);"><span class="u-keep">キッズコーチングアドバイザー講座</span><span class="u-keep">（2級資格認定）</span></h3>
+                    <p>ご自身の子育てや仕事に活かせるだけでなく子育ての相談やアドバイスができるよう理論とスキルが学べる資格認定講座です。</p>
                     <p class="strong-text mt-large"
                         style="font-size: 1.2rem; background-color: var(--accent-color); color: #fff; padding: 12px 20px; border-radius: 50px; text-align: center; display: inline-block; width: 100%; box-sizing: border-box;">
                         協会固定価格：6時間 49,500円</p>
@@ -177,9 +210,12 @@
         </div>
     </section>
 
-    <section class="steps section-padding">
-        <div class="container">
-            <h2 class="section-title">受講までのシンプルな3ステップ</h2>
+    <section class="steps section-padding" style="position: relative; overflow: hidden; z-index: 1;">
+        <!-- 新規追加のイラスト -->
+        <img src="deco_steps.png" alt="階段を登る子ども" class="empathy-deco" style="bottom: 0px; left: -2%; width: 280px; z-index: -1;">
+        
+        <div class="container" style="position: relative; z-index: 2;">
+            <h2 class="section-title"><span class="decor-title">受講までのシンプルな3ステップ</span></h2>
 
             <div class="step-list">
                 <div class="step-item">
@@ -193,7 +229,7 @@
                 <div class="step-item">
                     <div class="step-label">ステップ2</div>
                     <h3 class="step-title">30分のオンライン無料説明会</h3>
-                    <p>キッズコーチングの基本や、現在のお悩みをお伺いします。無理な勧誘は一切ありませんので、どうぞリラックスしてご参加ください。</p>
+                    <p>キッズコーチングの基本や現在のお悩みをお伺いします。無理な勧誘は一切ありませんのでどうぞリラックスしてご参加ください。</p>
                 </div>
 
                 <div class="step-arrow">▼</div>
@@ -201,7 +237,7 @@
                 <div class="step-item">
                     <div class="step-label">ステップ3</div>
                     <h3 class="step-title">講座スタート</h3>
-                    <p>内容にご納得いただけましたら、あなたのペースに合わせて理論ベースのコーチング講座をスタートします。</p>
+                    <p>内容にご納得いただけましたらあなたのペースに合わせて理論ベースのコーチング講座をスタートします。</p>
                 </div>
             </div>
         </div>
@@ -221,43 +257,52 @@
                 <p style="font-size: 1.1rem; margin-bottom: 10px;">コーチングを身近なものにする専門家</p>
                 <h3 style="font-size: 1.8rem; margin-bottom: 5px;">だいのぶ 良美</h3>
                 <p style="color: var(--primary-dark); font-weight: 700; margin-bottom: 25px;">
-                    一般財団法人日本キッズコーチング協会認定<br>キッズコーチングエキスパート</p>
+                    <span class="u-keep">一般財団法人日本キッズコーチング協会認定</span><span class="u-keep">キッズコーチングエキスパート</span></p>
 
                 <p
                     style="background: var(--border-color); display: inline-block; padding: 10px 20px; border-radius: 30px; font-weight: 700;">
-                    子ども会、PTAなどでのセミナー依頼受け付けます</p>
+                    子ども会やPTAなどでのセミナー依頼受け付けます</p>
             </div>
 
             <a href="#" class="btn btn-primary btn-large mt-large" style="background-color: #06C755;">
                 <span class="btn-main">LINEでお問い合わせはこちら</span>
             </a>
 
-            <p class="mt-large text-white" style="font-size: 1.1rem;">
-                📷 Instagram: <a href="https://instagram.com/kotayosimi" target="_blank"
-                    style="text-decoration: underline;">@kotayosimi</a>
+            <p class="mt-large text-white" style="font-size: 1.1rem; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="22" height="22" style="fill: currentColor;">
+                    <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/>
+                </svg>
+                <span class="u-keep">Instagram: <a href="https://instagram.com/kotayosimi" target="_blank" style="text-decoration: underline;">@kotayosimi</a></span>
             </p>
         </div>
     </section>
 
     <footer class="footer">
         <div class="container text-center">
+            <img src="logo_white_fixed.png" alt="Kimi Sora" class="footer-logo">
+
             <div class="footer-message">
-                <p>毎日子育てと向き合い、悩みながらも前に進もうとしているあなたへ。</p>
-                <p>ひとりで正解を探す必要はありません。</p>
-                <p>理論という「確かな地図」を手に入れるだけで、<br>子育ての景色はもっと優しく、もっと楽しいものに変わります。</p>
-                <p>いつでも、あなたのお話を聞かせてください。<br>「きみそら」で、お会いできるのを楽しみにしています。</p>
+                <p style="font-size: 1.35rem; font-weight: 700; margin-bottom: 20px; letter-spacing: 0.05em;">
+                    <span class="u-keep">ひとりで正解を</span><span class="u-keep">探す必要はありません。</span>
+                </p>
+                <p style="font-size: 1rem; line-height: 2; margin-bottom: 30px; opacity: 0.9;">
+                    <span class="u-keep">理論という「確かな地図」を</span><span class="u-keep">手に入れるだけで</span>
+                    <span class="u-keep">子育てはもっと優しく、</span><span class="u-keep">楽しいものに変わります。</span>
+                </p>
+                <p style="font-size: 1.15rem; font-weight: 700; color: #ffecd1;">
+                    <span class="u-keep">「Kimi Sora」で</span><span class="u-keep">お会いできるのを楽しみにしています。</span>
+                </p>
             </div>
 
             <div class="association-notice"
                 style="margin-bottom: 30px; font-size: 0.85rem; padding: 15px; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
-                <p style="margin-bottom: 5px;">本講座およびコンテンツは、<br><strong>日本キッズコーチング協会®</strong>のメソッドに基づき提供しております。</p>
-                <p><a href="http://www.jakc.or.jp/" target="_blank"
-                        style="text-decoration: underline; color: var(--primary-dark);">▶ 一般財団法人日本キッズコーチング協会 公式サイト</a>
+                <p style="margin-bottom: 5px;"><span class="u-keep">本講座およびコンテンツは</span><strong><span class="u-keep">日本キッズコーチング協会®</span></strong><span class="u-keep">のメソッドに基づき</span><span class="u-keep">提供しております。</span></p>
+                <p><a href="http://www.jakc.or.jp/" target="_blank">▶ 一般財団法人日本キッズコーチング協会 公式サイト</a>
                 </p>
             </div>
 
             <div class="copyright">
-                <p>&copy; きみそら All Rights Reserved.</p>
+                <p>&copy; Kimi Sora All Rights Reserved.</p>
             </div>
         </div>
     </footer>
