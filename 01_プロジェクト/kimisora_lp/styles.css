@@ -219,7 +219,8 @@ h4 {
 }
 
 .hero-logo-absolute {
-    width: 250px;
+    width: 280px; /* PCでのロゴサイズ（数値を変更して調整してください） */
+    max-width: 90vw;
     height: auto;
     position: absolute;
     z-index: 3;
@@ -743,6 +744,7 @@ h4 {
         top: 0;
         left: 0;
         margin: 0 auto;
+        width: 200px; /* スマホでのロゴサイズ（数値を変更して調整してください） */
     }
 
     .hero-right {
@@ -783,15 +785,22 @@ h4 {
     .deco-right {
         top: 20px;
         right: -40px;
-        width: 140px;
-        opacity: 0.7;
+        width: 100px !important;
+        opacity: 0.2 !important;
     }
 
     .deco-left {
         bottom: 20px;
         left: -50px;
-        width: 160px;
-        opacity: 0.7;
+        width: 110px !important;
+        opacity: 0.2 !important;
+    }
+    
+    .merits-deco {
+        width: 120px !important;
+        opacity: 0.2 !important;
+        top: 0px !important;
+        right: 0px !important;
     }
 
     .hero-title {
