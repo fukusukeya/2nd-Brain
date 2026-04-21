@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>出張買取専門 福ふく - ご自宅で完結する上質な買取体験</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ヘッダー -->
+  <header class="header">
+    <div class="header__inner">
+      <h1 class="header__logo">
+        <a href="#">
+          <img src="logo.png" alt="福ふくロゴ" class="header__logo-img">
+        </a>
+      </h1>
+      <nav class="header__nav">
+        <ul class="header__nav-list">
+          <li class="header__nav-item"><a href="#reasons">選ばれる理由</a></li>
+          <li class="header__nav-item"><a href="#items">取扱品目</a></li>
+          <li class="header__nav-item"><a href="#flow">買取の流れ</a></li>
+          <li class="header__nav-item"><a href="#faq">よくあるご質問</a></li>
+        </ul>
+      </nav>
+      <div class="header__action">
+        <a href="tel:0120-000-000" class="btn-tel">0120-XXX-XXX</a>
+      </div>
+      <!-- Hamburger Button -->
+      <button class="hamburger js-hamburger" aria-label="メニューを開く">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Menu Overlay -->
+  <nav class="mobile-menu js-mobile-menu">
+    <button class="mobile-menu__close js-mobile-close" aria-label="メニューを閉じる">
+      <span></span><span></span>
+    </button>
+    <div class="mobile-menu__inner">
+      <ul class="mobile-menu__list">
+        <li><a href="#reasons" class="js-menu-link">選ばれる理由</a></li>
+        <li><a href="#items" class="js-menu-link">取扱品目</a></li>
+        <li><a href="#flow" class="js-menu-link">買取の流れ</a></li>
+        <li><a href="#faq" class="js-menu-link">よくあるご質問</a></li>
+      </ul>
+      <div class="mobile-menu__action">
+        <p class="mobile-menu__catch">お気軽にご相談ください</p>
+        <a href="tel:0120-000-000" class="btn-tel btn-tel--mobile">0120-XXX-XXX</a>
+      </div>
+      <div class="mobile-menu__logo">
+        <a href="#" class="js-menu-link">
+          <img src="logo.png" alt="福ふく ホームへ戻る">
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ファーストビュー（FV） -->
+  <section class="fv">
+    
+    <!-- Layer 0: 七宝紋様（FV内で見えるよう独立レイヤーとして配置） -->
+    <div class="fv__pattern"></div>
+
+    <!-- Layer 1: 背面（ぼかした画像とオーバーレイで空気感と奥行きのベースを作る） -->
+    <div class="fv__layer-bg">
+      <img src="fv_bg.png" alt="" class="fv__bg-img blur-bg">
+      <div class="fv__bg-cover"></div>
+    </div>
+    
+    <!-- Layer 2: 中景（シャープなメイン被写体を右側に配置） -->
+    <div class="fv__layer-mid">
+      <div class="fv__hero-image">
+        <img src="fv_bg.png" alt="美しい指輪を丁寧に査定する様子" class="fv__hero-img">
+      </div>
+    </div>
+
+    <!-- Layer 3: 前景（強烈なボケ感を画面端に置き、カメラで覗いているような立体感を演出） -->
+    <div class="fv__layer-fg">
+      <img src="fv_bg.png" alt="" class="fv__fg-img">
+    </div>
+    
+    <!-- 最前面: コンテンツエリア（コピーとウィジェット） -->
+    <div class="fv__content">
+      
+      <!-- メインコピー -->
+      <div class="fv__copy-box">
+        <h2 class="fv__copy">
+          <span class="u-keep">想い出の品を、</span>
+          <span class="u-keep">確かな目と信頼で。</span>
+          <br class="pc-only">
+          <span class="u-keep"><strong>ご自宅で完結</strong>する、</span>
+          <span class="u-keep">上質な買取体験。</span>
+        </h2>
+        <!-- 水引（みずひき）装飾ライン -->
+        <div class="mizuhiki" aria-hidden="true">
+          <svg viewBox="0 0 320 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,12 C40,2 80,22 120,12 C160,2 200,22 240,12 C280,2 320,22 320,12" fill="none" stroke="#C5A24D" stroke-width="1.2" opacity="0.7"/>
+            <path d="M0,12 C40,22 80,2 120,12 C160,22 200,2 240,12 C280,22 320,2 320,12" fill="none" stroke="#b5443e" stroke-width="1.2" opacity="0.5"/>
+          </svg>
+        </div>
+        <p class="fv__lead">
+          <span class="u-keep">経験豊富な専門家がお客様の</span>
+          <span class="u-keep">ご自宅へ伺い、丁寧に査定いたします。</span><br>
+          <span class="u-keep">安心・安全な出張買取サービスで、</span>
+          <span class="u-keep">大切な資産を未来へつなぎます。</span>
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== 下層コンテンツ ===== -->
+  <main>
+    <!-- SEC-1: 導入（共感セクション） -->
+    <section class="intro section">
+      <div class="inner">
+        <h2 class="intro__copy js-scroll-anim">大切な品物に、もう一度光を。</h2>
+        <p class="intro__desc js-scroll-anim">
+          <span class="u-keep">ずっとしまったままのジュエリー、</span>
+          <span class="u-keep">価値がわからない骨董品——</span><br>
+          <span class="u-keep">捨てるには忍びないその品物を、</span>
+          <span class="u-keep">確かな目を持つ専門家が丁寧に査定し、</span>
+          <span class="u-keep">次の持ち主へとお繋ぎします。</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- SEC-2: 選ばれる3つの理由 -->
+    <section id="reasons" class="reasons section bg-gray">
+      <div class="inner">
+        <h2 class="section__title js-scroll-anim">福ふくが選ばれる<span class="u-text-large">3</span>つの理由</h2>
+        <div class="reasons__list">
+          <div class="reason js-scroll-anim">
+            <div class="reason__head">
+              <span class="reason__num">01</span>
+              <h3 class="reason__title">
+                <span class="u-keep">ご自宅から</span><span class="u-keep">一歩も出ずに完結</span>
+              </h3>
+            </div>
+            <p class="reason__desc">重い荷物を運ぶ必要はありません。お電話一本で、ご希望の日時にお伺いします。<strong class="u-text-accent">実店舗を持たないからこそ、その分をお客様の買取価格に還元できる</strong>のが強みです。</p>
+          </div>
+          <div class="reason js-scroll-anim">
+            <div class="reason__head">
+              <span class="reason__num">02</span>
+              <h3 class="reason__title">
+                <span class="u-keep">専門家による</span><span class="u-keep">確実な査定</span>
+              </h3>
+            </div>
+            <p class="reason__desc">単なるグラム換算だけでなく、ブランド価値や美術的価値を見逃さずに適正評価。長年の経験を持つ鑑定士が1点1点しっかりと拝見します。</p>
+          </div>
+          <div class="reason js-scroll-anim">
+            <div class="reason__head">
+              <span class="reason__num">03</span>
+              <h3 class="reason__title">
+                <span class="u-keep">査定・出張・キャンセル</span><br><span class="u-keep">すべて無料</span>
+              </h3>
+            </div>
+            <p class="reason__desc">ご自宅への訪問費用や査定料は一切かかりません。金額にご納得いただけず「やっぱりやめる」となった場合でもキャンセル料は不要です。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 中間CTA（電話バー） -->
+    <div class="cta-bar">
+      <div class="inner cta-bar__inner">
+        <p class="cta-bar__catch">査定無料・キャンセルOK。お電話一本で最短即日お伺いします。</p>
+        <div class="cta-bar__action">
+          <a href="tel:0120-XXX-XXX" class="btn-tel-large">0120-XXX-XXX</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEC-3: 取扱品目 -->
+    <section id="items" class="items section">
+      <div class="inner">
+        <h2 class="section__title js-scroll-anim">幅広い買取ジャンル</h2>
+        <div class="items__grid">
+          <div class="item-card item-card--large js-scroll-anim">
+            <img src="item_jewelry.png" alt="貴金属・ジュエリー" class="item-card__img">
+            <h3 class="item-card__name">貴金属・ジュエリー</h3>
+          </div>
+          <div class="item-card item-card--large js-scroll-anim" style="transition-delay: 0.1s;">
+            <img src="item_watch.png" alt="高級時計" class="item-card__img">
+            <h3 class="item-card__name">高級時計</h3>
+          </div>
+          <div class="item-card item-card--large js-scroll-anim" style="transition-delay: 0.2s;">
+            <img src="item_bag.png" alt="ブランドバッグ・財布" class="item-card__img">
+            <h3 class="item-card__name">ブランドバッグ・財布</h3>
+          </div>
+          <div class="item-card js-scroll-anim">
+            <img src="item_antique.png" alt="骨董品・茶道具" class="item-card__img">
+            <h3 class="item-card__name">骨董品・茶道具</h3>
+          </div>
+          <div class="item-card js-scroll-anim" style="transition-delay: 0.1s;">
+            <img src="item_stamp.png" alt="切手・古銭" class="item-card__img">
+            <h3 class="item-card__name">切手・古銭</h3>
+          </div>
+          <div class="item-card item-card--text js-scroll-anim" style="transition-delay: 0.2s;">
+            <p>※上記以外のお品物も<br>お気軽にご相談ください</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEC-4: ご自宅買取の流れ -->
+    <section id="flow" class="flow section bg-gray">
+      <div class="inner">
+        <h2 class="section__title js-scroll-anim">ご自宅買取の流れ</h2>
+        <div class="flow__steps">
+          <div class="step js-scroll-anim">
+            <div class="step__num">STEP 1</div>
+            <div class="step__content">
+              <h3 class="step__title">お電話でお申し込み</h3>
+              <p class="step__desc">お身体へのご負担なくご相談いただけます。ご希望の訪問日時をスタッフがお伺いし調整いたします。</p>
+            </div>
+          </div>
+          <div class="step js-scroll-anim" style="transition-delay: 0.1s;">
+            <div class="step__num">STEP 2</div>
+            <div class="step__content">
+              <h3 class="step__title">ご訪問・査定</h3>
+              <p class="step__desc">社名の入っていない一般車両でお伺いします。玄関先での査定も可能ですのでご遠慮なくお申し付けください。</p>
+            </div>
+          </div>
+          <div class="step js-scroll-anim" style="transition-delay: 0.2s;">
+            <div class="step__num">STEP 3</div>
+            <div class="step__content">
+              <h3 class="step__title">その場で現金お支払い</h3>
+              <p class="step__desc">提示した査定金額にしっかりご納得いただけましたら、その場で現金にてお支払いいたします。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEC-5: 対応エリア -->
+    <section id="area" class="area section">
+      <div class="inner">
+        <h2 class="section__title js-scroll-anim">出張対応エリア</h2>
+        <div class="area__box js-scroll-anim">
+          <p class="area__text"><strong class="u-text-accent">東京都全域</strong> に対応しております。</p>
+          <p class="area__sub">※一部離島など、状況によりお伺いできない場合がございます。まずはお電話にてご相談ください。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEC-6: よくあるご質問 (FAQ) -->
+    <section id="faq" class="faq section bg-gray">
+      <div class="inner">
+        <h2 class="section__title js-scroll-anim">よくあるご質問</h2>
+        <div class="faq__list">
+          <div class="faq__item js-scroll-anim">
+            <div class="faq__q"><span class="faq__icon">Q</span><p class="faq__text">1点だけでも来てもらえますか？</p></div>
+            <div class="faq__a"><span class="faq__icon">A</span><p class="faq__text">もちろん喜んでお伺いいたします。お品物の数にかかわらずお気軽にお申し付けください。</p></div>
+          </div>
+          <div class="faq__item js-scroll-anim">
+            <div class="faq__q"><span class="faq__icon">Q</span><p class="faq__text">傷や汚れがあっても大丈夫ですか？</p></div>
+            <div class="faq__a"><span class="faq__icon">A</span><p class="faq__text">状態にかかわらず査定可能です。ご自身で無理に綺麗にしようとせず、そのままお見せください。</p></div>
+          </div>
+          <div class="faq__item js-scroll-anim">
+            <div class="faq__q"><span class="faq__icon">Q</span><p class="faq__text">家族や近所に内緒で来てもらうことは可能ですか？</p></div>
+            <div class="faq__a"><span class="faq__icon">A</span><p class="faq__text">社名の入っていない一般車両でお伺いするなど、プライバシーに最大限配慮した対応が可能です。</p></div>
+          </div>
+          <div class="faq__item">
+            <div class="faq__q"><span class="faq__icon">Q</span><p class="faq__text">査定額に納得できなかった場合はどうなりますか？</p></div>
+            <div class="faq__a"><span class="faq__icon">A</span><p class="faq__text">無理な買取や交渉は一切いたしません。お気兼ねなくお断りいただけますし、キャンセル料も無料です。</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- SEC-7: フッターCTA -->
+  <aside class="footer-cta">
+    <div class="footer-cta__bg"></div>
+    <div class="inner footer-cta__inner">
+      <p class="footer-cta__sub">査定料・出張費・キャンセル料 すべて無料</p>
+      <h2 class="footer-cta__catch">まずはお気軽にご相談ください</h2>
+      <div class="footer-cta__action">
+        <a href="tel:0120-XXX-XXX" class="btn-tel-giant">0120-XXX-XXX</a>
+        <p class="footer-cta__time">受付時間 9:00〜18:00（年中無休）</p>
+      </div>
+    </div>
+  </aside>
+
+  <!-- SEC-8: フッター -->
+  <footer class="footer">
+    <div class="inner footer__inner">
+      <div class="footer__logo">
+        <img src="logo.png" alt="福ふく" class="footer__logo-img">
+      </div>
+      <div class="footer__info">
+        <p><span class="u-keep">■運営会社名：株式会社Ｍ＆Ａ</span></p>
+        <p><span class="u-keep">■会社住所：東京都新宿区西新宿6丁目15-1</span> <span class="u-keep">セントラルパークタワー ラ・トゥール新宿501</span></p>
+        <p><span class="u-keep">■古物商許可番号：東京都公安委員会</span> <span class="u-keep">第304362519269号</span></p>
+      </div>
+      <ul class="footer__links">
+        <li><a href="privacy.html">プライバシーポリシー</a></li>
+        <li><a href="tokushoho.html">特定商取引法に基づく表記</a></li>
+      </ul>
+      <p class="footer__copy"><small>&copy; 2026 株式会社M&A All Rights Reserved.</small></p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
