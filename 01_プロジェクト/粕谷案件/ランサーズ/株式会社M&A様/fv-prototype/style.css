@@ -407,11 +407,11 @@ body {
 }
 
 /* Button CTA Shine Effect */
-.btn-tel, .btn-tel-large, .btn-tel-giant {
+.btn-tel-large, .btn-tel-giant {
   position: relative;
   overflow: hidden;
 }
-.btn-tel::after, .btn-tel-large::after, .btn-tel-giant::after {
+.btn-tel-large::after, .btn-tel-giant::after {
   content: ""; position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
   background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);
   transform: skewX(-20deg); animation: shine 3s infinite;
