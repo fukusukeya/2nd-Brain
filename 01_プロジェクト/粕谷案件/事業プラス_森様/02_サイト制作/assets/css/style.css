@@ -500,7 +500,8 @@ a {
   background-position: center;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end; /* トップページに合わせて右端に寄せる */
+  padding: 80px 80px 0 20px; /* 右上のハンバーガーメニューを避ける */
 }
 .page-header::after {
   content: '';
@@ -512,10 +513,12 @@ a {
   position: relative;
   z-index: 2;
   color: #fff;
-  font-size: 36px;
+  font-size: 28px; /* トップページに合わせて少し縮小 */
   font-weight: 500;
   letter-spacing: 0.25em;
   text-shadow: 0 4px 15px rgba(0,0,0,0.8);
+  border-right: 2px solid rgba(255,255,255,0.7); /* トップページに合わせて右線を追加 */
+  padding-right: 20px;
 }
 
 /* --- お品書き詳細 (menu.html) --- */
@@ -619,7 +622,8 @@ a {
   background-position: center;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end; /* トップページに合わせて右端に寄せる */
+  padding: 80px 80px 0 20px; /* 右上のハンバーガーメニューを避ける */
 }
 .article-hero::before {
   content: '';
@@ -631,9 +635,11 @@ a {
   position: relative;
   color: #fff;
   font-family: 'Shippori Mincho', serif;
-  font-size: 48px;
+  font-size: 32px; /* トップページに合わせて縮小 */
   letter-spacing: 0.1em;
   z-index: 2;
+  border-right: 2px solid rgba(255,255,255,0.7); /* トップページに合わせて右線を追加 */
+  padding-right: 20px;
 }
 .article-detail-section {
   background: var(--bg-main);
