@@ -3,13 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>お知らせ・仕入れ | サカナと酒菜 だ粋</title>
-  <meta name="description" content="「サカナと酒菜 だ粋」からの最新のお知らせや、店主が自ら厳選した毎朝の仕入れ情報、季節の入荷状況などをお届けします。">
+  <title>詳細・平日の「釣った魚のお持ち込み調理」予約受付を開始いたしました。 | サカナと酒菜 だ粋</title>
+  <meta name="description" content="お知らせの詳細ページです。">
   <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600;700&family=Noto+Serif+JP:wght@400;600&family=Zen+Kaku+Gothic+New:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <!-- Fixed Header (index共通) -->
+  <!-- Fixed Header -->
   <header class="header">
     <div class="logo"><a href="index.html" style="text-decoration:none;"><img src="assets/images/logo.png" alt="サカナと酒菜 だ粋"></a></div>
     
@@ -44,45 +47,57 @@
     </div>
   </header>
 
-  <!-- Page Hero -->
-  <div class="page-header" style="background-image: url('assets/images/S__31965219_0.jpg');">
-    <h1 class="page-title">お知らせ・仕入れ</h1>
+  <!-- Article Hero -->
+  <!-- 高さを絞った全幅のヘッダーにNEWSという文字をオーバーレイ -->
+  <div class="article-hero" style="background-image: url('assets/images/S__31965219_0.jpg');">
+    <h1 class="article-hero-title">NEWS</h1>
   </div>
 
-  <section class="section-padding news-page-section">
-    <div class="container">
-      
-
-      <!-- お知らせ記事一覧 -->
-      <h2 class="section-title">お知らせ一覧</h2>
-      <div class="news-list">
-        
-        <a href="news-detail.html" class="news-item">
-          <div class="news-date">2026.04.01</div>
-          <span class="news-badge">お知らせ</span>
-          <div class="news-title">平日の「釣った魚のお持ち込み調理」予約受付を開始いたしました。</div>
-        </a>
-        
-        <a href="#" class="news-item">
-          <div class="news-date">2026.03.28</div>
-          <span class="news-badge" style="border-color:#7a7369; color:#7a7369;">仕入れ情報</span>
-          <div class="news-title">本日は特大の金目鯛が入荷しております。ぜひお造りでお楽しみください。</div>
-        </a>
-        
-        <a href="#" class="news-item">
-          <div class="news-date">2026.03.15</div>
-          <span class="news-badge">お知らせ</span>
-          <div class="news-title">「サカナと酒菜 だ粋」プレオープンのお知らせ</div>
-        </a>
-        
-        <a href="#" class="news-item">
-          <div class="news-date">2026.03.01</div>
-          <span class="news-badge" style="border-color:#7a7369; color:#7a7369;">仕入れ情報</span>
-          <div class="news-title">春の訪れを感じる「初鰹」が入荷しました。</div>
-        </a>
-        
+  <section class="article-detail-section">
+    <div class="container article-layout">
+      <!-- Left Side (Visual Decorative Block) -->
+      <!-- STUDIO特有のアシンメトリーと重なりを表現 -->
+      <div class="article-visual">
+         <div class="article-bg-color"></div>
+         <img src="assets/images/S__31965226_0.jpg" alt="調理イメージ" class="article-thumbnail">
       </div>
       
+      <!-- Right Side (Content Block) -->
+      <div class="article-content-area">
+         <!-- 超巨大な透かし日付 -->
+         <div class="article-huge-date" aria-hidden="true">2026<br>04.01</div>
+         
+         <!-- 記事メタ情報 -->
+         <div class="article-meta">
+           <span class="news-date">2026.04.01</span>
+           <span class="news-badge">お知らせ</span>
+         </div>
+         <h1 class="article-title">平日の「釣った魚のお持ち込み調理」予約受付を開始いたしました。</h1>
+         
+         <div class="article-body">
+           <p class="u-keep">常連のお客様から大変多くのご要望をいただいておりました、</p>
+           <p class="u-keep">「釣った魚のお持ち込み調理」につきまして、平日限定にてお電話での予約受付を開始いたします。</p>
+           
+           <h2 class="article-h2">大将によるお任せ調理</h2>
+           <p class="u-keep">ご自身で釣り上げた新鮮な海の幸を、大将がその日一番美味しい調理法（お造り、煮付け、焼き物など）でご提供します。</p>
+           <p class="u-keep">もちろん、釣り上げたその日に直接お持ち込みいただくことも可能です。</p>
+
+           <h3 class="article-h3">ご利用にあたってのお願い</h3>
+           <ul class="article-list">
+             <li>衛生管理と準備の都合上、必ず<strong>事前にお電話でのご相談・魚種のご連絡</strong>をお願いいたします。</li>
+             <li>ご利用は平日（火〜金）のディナータイムのみとさせていただきます。</li>
+             <li>調理代金につきましては、魚のサイズや数、ご希望の調理法によって異なります（目安：1尾1,000円〜）。</li>
+           </ul>
+
+           <p class="u-keep">釣り帰りのお仲間同士での宴会やご家族での思い出作りに、ぜひ当店の「持ち込み調理」をご活用くださいませ。</p>
+           <p class="u-keep">詳しくは、お気軽にお電話にてお問い合わせください。</p>
+         </div>
+
+         <!-- Bottom Navigation -->
+         <div class="article-footer-nav">
+            <a href="news.html" class="back-to-list-link">一覧に戻る</a>
+         </div>
+      </div>
     </div>
   </section>
 

@@ -38,6 +38,26 @@ a {
   text-decoration: none;
 }
 
+
+/* ハンバーガーメニューの追従（Floating）スタイル */
+.hamburger {
+  position: fixed !important;
+  top: 20px;
+  right: 20px;
+  z-index: 10001; /* ヘッダーやメニューより上に配置 */
+  background: var(--primary-color) !important; /* スクロール時に背景と同化しないように色を敷く */
+  border-left: none !important;
+  border-radius: 6px;
+  padding: 10px 15px !important;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+.hamburger > div > span {
+  background: #fff !important; /* ハンバーガーの3本線を白に */
+}
+.hamburger > span {
+  color: #fff !important; /* MENUの文字を白に */
+}
+
 .reserve-btn {
   background: var(--bg-main);
   color: var(--primary-color);
@@ -72,44 +92,67 @@ a {
 
 /* ヘッダー */
 .header {
-  position: fixed;
+  position: absolute; /* 白帯ではないので上部に固定配置（スクロールで消える仕様） */
   top: 0;
   width: 100%;
-  padding: 15px 40px;
+  padding: 20px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   z-index: 1000;
-  background: rgba(250, 245, 235, 0.95);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  background: transparent; /* 白帯撤去 */
+  box-shadow: none; /* 影撤去 */
   box-sizing: border-box;
 }
 
 .logo {
-  color: #fff;
-  font-size: 28px;
-  font-weight: 700;
-  letter-spacing: 0.25em;
-  text-shadow: 0 2px 10px rgba(0,0,0,0.6);
-  position: absolute;
-  top: 40px;
-  left: 40px;
+  z-index: 1001;
+  height: 120px; 
+  width: 240px; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible; 
+}
+.logo img {
+  height: 300px; /* 塗りつぶしの赤丸のサイズ感に合わせて縮小 */
+  width: auto;
+  max-width: none; 
+  flex-shrink: 0; 
+  filter: invert(1); 
+  mix-blend-mode: screen; 
+  transform: translateY(20px); /* さらに上へ（見切れないギリギリのライン） */
 }
 
 .header-right {
-  position: absolute;
-  top: 30px;
-  right: 40px;
+  /* position:absoluteを外し、Flex帯の中に収める */
+  padding-right: 80px; /* 右上の固定ハンバーガーメニューとの被りを回避するために左へずらす */
 }
 
-/* ヒーローセクション */
+/* ご予約ボタンは目立たせるためにテーマカラーの赤背景に変更 */
+.header .reserve-btn {
+  background: var(--primary-color) !important;
+  color: #fff !important;
+  border-color: var(--primary-color) !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5) !important;
+}
+.header .reserve-btn:hover {
+  background: #a94432 !important; /* ホバー時は少し明るく */
+  border-color: #a94432 !important;
+}
+.header .hamburger div span {
+  background: #ffffff !important;
+}
+.header .hamburger span {
+  color: #ffffff !important;
+}
+
 .hero {
   position: relative;
   height: 90vh;
-  background-image: url('../images/hero_sashimi.png');
+  background-image: url('../images/hero_sashimi_landscape.png');
   background-size: cover;
-  background-position: center;
+  background-position: center 80%; /* ワイド画面でもお皿が見切れにくいよう下側寄りに設定 */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -119,7 +162,8 @@ a {
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0,0,0,0.35);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.2) 60%, rgba(0, 0, 0, 0) 100%);
+  z-index: 1;
 }
 
 .hero-copy-container {
@@ -129,15 +173,15 @@ a {
   max-width: 1000px;
   width: 100%;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 80px 80px 0 20px; /* 上と右に余白を持たせてハンバーガーメニューを避ける */
   display: flex;
   align-items: center;
-  justify-content: flex-start; /* コンテンツ幅ギリギリ左端に寄せる */
+  justify-content: flex-end; /* 左上のロゴとの被りを防ぐため右端に寄せる */
 }
 
 .hero-copy {
   color: #fff;
-  font-size: 36px;
+  font-size: 28px; /* ハンバーガーとの被りを防ぐため少し小さく */
   font-weight: 500;
   text-shadow: 0 4px 15px rgba(0,0,0,0.8);
   border-right: 2px solid rgba(255,255,255,0.7);
@@ -147,13 +191,13 @@ a {
 
 /* お知らせバー */
 .news-bar {
-  background: var(--bg-section);
-  color: var(--text-dark);
+  background: var(--primary-color); /* ご要望の#8a3324 */
+  color: #fff; /* 背景が濃い赤なので白文字に変更 */
   padding: 15px 20px;
   text-align: center;
   font-size: 14px;
   border-bottom: 1px solid var(--border-color);
-  border-top: 1px solid var(--border-color);
+  /* ヒーロー画像との間の白い線を消すため top-border は削除 */
 }
 
 /* 共通セクション見出し（落款風など和のあしらい） */
@@ -354,18 +398,25 @@ a {
 
 /* フッター */
 .footer {
-  background: var(--text-dark); /* 墨色で和の重厚感を演出 */
-  color: var(--bg-main);
+  background: var(--primary-color); /* ご要望の#8a3324 */
+  color: #fff;
   padding: 80px 0 30px;
 }
 .footer-logo {
-  font-family: 'Shippori Mincho', serif;
-  font-size: 32px;
-  letter-spacing: 0.15em;
-  color: #fff;
-  margin: 0;
-  text-align: center;
-  line-height: 1.6;
+  /* フッター自体が間伸びしないように、高さを固定して要素が取るスペースを圧縮 */
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0 30px 0;
+  overflow: visible; /* 透明な余白部分の上下をはみ出させる */
+}
+.footer-logo img {
+  height: 320px; /* 大サイズは維持。透明な余白のみが枠外へ溢れる */
+  max-width: none;
+  width: auto;
+  filter: invert(1);
+  mix-blend-mode: screen;
 }
 .footer-nav {
   list-style: none;
@@ -400,8 +451,8 @@ a {
 
 /* ドロップダウンメニュー (CSS Only) */
 .dropdown-menu {
-  position: fixed;
-  top: 75px; /* ヘッダーのおおよその高さ */
+  position: fixed; /* スクロールしても画面に追従して開きつづけるように固定 */
+  top: 80px; /* ハンバーガーボタンの下辺りから出現 */
   left: 0;
   width: 100%;
   background: rgba(250, 245, 235, 0.98);
@@ -560,6 +611,145 @@ a {
   line-height: 1.5;
 }
 
+/* --- お知らせ詳細ページ (news-detail.html) --- */
+.article-hero {
+  position: relative;
+  height: 350px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.article-hero::before {
+  content: '';
+  position: absolute;
+  top:0; left:0; right:0; bottom:0;
+  background: rgba(0,0,0,0.4);
+}
+.article-hero-title {
+  position: relative;
+  color: #fff;
+  font-family: 'Shippori Mincho', serif;
+  font-size: 48px;
+  letter-spacing: 0.1em;
+  z-index: 2;
+}
+.article-detail-section {
+  background: var(--bg-main);
+  overflow: hidden; /* 背景はみ出し制御 */
+  padding: 80px 0;
+}
+.article-layout {
+  display: flex;
+  gap: 60px;
+  align-items: flex-start;
+}
+.article-visual {
+  flex: 0 0 35%;
+  position: relative;
+  padding-top: 40px;
+}
+.article-bg-color {
+  position: absolute;
+  top: 0; left: 0;
+  width: 80%;
+  height: 100%;
+  background: var(--primary-color);
+  z-index: 1;
+}
+.article-thumbnail {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  transform: translate(20px, 0); /* 少し右にずらして重ねる */
+}
+.article-content-area {
+  flex: 1;
+  position: relative;
+  padding-bottom: 40px;
+}
+.article-huge-date {
+  position: absolute;
+  top: -40px; right: -20px;
+  font-size: 160px;
+  font-family: 'Shippori Mincho', serif;
+  color: var(--primary-color);
+  opacity: 0.04;
+  line-height: 0.8;
+  z-index: 0;
+  user-select: none;
+  text-align: right;
+  letter-spacing: -0.05em;
+}
+.article-meta {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.article-title {
+  position: relative;
+  z-index: 2;
+  font-size: 28px;
+  font-family: 'Shippori Mincho', serif;
+  line-height: 1.5;
+  color: var(--text-dark);
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border-color);
+}
+.article-body {
+  position: relative;
+  z-index: 2;
+  font-size: 15px;
+  line-height: 1.8;
+  color: #444;
+}
+.article-h2 {
+  font-size: 22px;
+  font-family: 'Shippori Mincho', serif;
+  color: var(--text-dark);
+  margin: 40px 0 20px;
+  padding-left: 15px;
+  border-left: 3px solid var(--primary-color);
+}
+.article-h3 {
+  font-size: 18px;
+  font-family: 'Shippori Mincho', serif;
+  color: var(--text-dark);
+  margin: 30px 0 15px;
+}
+.article-list {
+  padding-left: 20px;
+  margin-bottom: 30px;
+}
+.article-list li {
+  margin-bottom: 10px;
+}
+.article-footer-nav {
+  position: relative;
+  z-index: 2;
+  margin-top: 60px;
+  text-align: right;
+}
+.back-to-list-link {
+  display: inline-block;
+  font-size: 14px;
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: opacity 0.3s;
+}
+.back-to-list-link:hover {
+  opacity: 0.7;
+}
+
 /* ==================================
    レスポンシブ（スマホ表示最適化）
 ================================== */
@@ -569,21 +759,35 @@ a {
   .section-title { margin-bottom: 30px; font-size: 22px; }
 
   /* ヘッダー周り */
-  .header { padding: 10px 15px; }
+  .header { padding: 15px 15px; }
   .logo {
-    font-size: 22px;
-    top: 15px;
-    left: 15px;
+    height: 70px; 
+    width: 140px; /* スマホ版はヘッダー幅を取らないようコンパクトに戻す */
+  }
+  .logo img {
+    height: 200px; 
+    transform: none; /* スマホ版の追加余白もリセット */
   }
   .header-right {
-    top: 10px;
-    right: 15px;
     gap: 10px;
+    padding-right: 60px; /* スマホでもハンバーガーメニューの被りを回避 */
   }
-  /* 予約ボタンの省スペース化 */
-  .reserve-btn { padding: 6px 12px; }
-  .reserve-btn span:nth-child(1) { display: none !important; }
-  .reserve-btn span:nth-child(2) { font-size: 14px !important; }
+  /* スマホ版ハンバーガーメニューの無色化（色抜き） */
+  .hamburger {
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+  /* スマホ版予約ボタンの省スペース化（色はそのまま赤赤） */
+  .header .reserve-btn { 
+    padding: 6px 12px !important; 
+  }
+  /* モバイル版でも「ご予約〜」テキストを表示し、番号全体を少し大きくする */
+  .reserve-btn span.reserve-sub, .reserve-btn span:nth-child(1) { display: block !important; font-size: 9px !important; margin-bottom: 2px !important; }
+  .reserve-btn span.reserve-main, .reserve-btn span:nth-child(2) { font-size: 14px !important; letter-spacing: 0px !important; }
+
+  /* フッターロゴのスマホ向け縮小 */
+  .footer-logo { height: 60px; }
+  .footer-logo img { height: 200px; }
 
   /* ヒーローセクション */
   .hero-copy {
@@ -731,5 +935,25 @@ a {
     right: 20px;
     width: 45px;
     height: 45px;
+  }
+}
+
+/* お知らせ詳細のスマホレスポンシブ */
+@media (max-width: 768px) {
+  .article-layout {
+    flex-direction: column;
+    gap: 40px;
+  }
+  .article-visual {
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 20px;
+  }
+  .article-huge-date {
+    font-size: 100px;
+    top: 0;
+  }
+  .article-title {
+    font-size: 22px;
   }
 }

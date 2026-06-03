@@ -11,13 +11,13 @@
 
   <!-- Fixed Header -->
   <header class="header">
-    <div class="logo">だ粋</div>
+    <div class="logo"><a href="index.html" style="text-decoration:none;"><img src="assets/images/logo.png" alt="サカナと酒菜 だ粋"></a></div>
     
     <div class="header-right" style="display: flex; align-items: center; gap: 20px;">
       <!-- ご予約・電話番号ボタン -->
-      <a href="tel:080-4190-3233" class="reserve-btn" style="display: flex; flex-direction: column; align-items: center; padding: 10px 24px; line-height: 1.3;">
-        <span style="font-size: 11px; font-weight: normal; margin-bottom: 2px;">ご予約・お問い合わせ</span>
-        <span style="font-size: 18px; font-weight: bold; font-family: 'Shippori Mincho', serif; letter-spacing: 1px;">080-4190-3233</span>
+      <a href="tel:080-4190-3233" class="reserve-btn" style="display: flex; flex-direction: column; align-items: center; padding: 14px 34px; line-height: 1.2;">
+        <span class="reserve-sub" style="font-size: 13px; font-weight: bold; margin-bottom: 4px;">ご予約・お問い合わせ</span>
+        <span class="reserve-main" style="font-size: 30px; font-weight: bold; font-family: 'Shippori Mincho', serif; letter-spacing: 1px;">080-4190-3233</span>
       </a>
       
       <!-- ハンバーガーメニュー追加 (CSS Toggle) -->
@@ -38,7 +38,7 @@
           <li><a href="#concept" onclick="document.getElementById('menu-toggle').checked = false;">お店の想い</a></li>
           <li><a href="#chef" onclick="document.getElementById('menu-toggle').checked = false;">店主ご挨拶</a></li>
           <li><a href="#procurement" onclick="document.getElementById('menu-toggle').checked = false;">毎朝の仕入れ</a></li>
-          <li><a href="menu.html">お品書き（詳細）</a></li>
+          <li><a href="menu.html">お品書き</a></li>
           <li><a href="#omotenashi" onclick="document.getElementById('menu-toggle').checked = false;">おもてなし</a></li>
           <li><a href="news.html">お知らせ一覧</a></li>
           <li><a href="#info" onclick="document.getElementById('menu-toggle').checked = false;">店舗案内</a></li>
@@ -75,9 +75,9 @@
       </p>
       
       <div class="concept-images">
-        <img src="assets/images/chef_market.png" alt="仕入れ" loading="lazy">
-        <img src="assets/images/concept_interior.png" alt="内装" loading="lazy">
-        <img src="assets/images/dish_creations.png" alt="料理" loading="lazy">
+        <img src="assets/images/S__31965190_0.jpg" alt="仕入れの成果・刺身" loading="lazy">
+        <img src="assets/images/S__31965221_0.jpg" alt="店内または外観" loading="lazy">
+        <img src="assets/images/S__31965197_0.jpg" alt="酒と料理" loading="lazy">
       </div>
     </div>
   </section>
@@ -88,8 +88,8 @@
       
       <div class="wa-row">
         <div class="wa-image">
-          <!-- ※実際にはここに森様の顔写真を配置します -->
-          <img src="assets/images/concept_interior.png" alt="店主紹介" loading="lazy">
+          <!-- 森様の顔写真 (ポートレート) -->
+          <img src="assets/images/S__31965220_0.jpg" alt="店主 森 大樹" loading="lazy">
         </div>
         <div class="wa-content">
           <h3 class="wa-title">店主ご挨拶</h3>
@@ -105,7 +105,8 @@
 
       <div class="wa-row reverse" id="procurement">
         <div class="wa-image">
-          <img src="assets/images/chef_market.png" alt="毎朝の仕入れ" loading="lazy">
+          <!-- 買い付けシーンの代わりに鮮度の良い魚・刺身の画像または厨房俯瞰を使用 -->
+          <img src="assets/images/S__31965226_0.jpg" alt="毎朝の仕入れと仕込み" loading="lazy">
         </div>
         <div class="wa-content">
           <h3 class="wa-title">毎朝の仕入と目利き</h3>
@@ -132,7 +133,8 @@
       <div class="menu-list">
         
         <div class="menu-item">
-          <img src="assets/images/hero_sashimi.png" alt="お品書き" loading="lazy">
+          <!-- 豪華な刺身盛り合わせ画像 -->
+          <img src="assets/images/S__31965188_0.jpg" alt="お品書き" loading="lazy">
           <div class="menu-info">
             <h3>本格和食とお造り</h3>
             <p>
@@ -157,7 +159,8 @@
       <div class="menu-list">
 
         <div class="menu-item">
-          <img src="assets/images/dish_creations.png" alt="持ち込み調理" loading="lazy">
+          <!-- 持ち込み調理をイメージさせる魚料理 -->
+          <img src="assets/images/S__31965215_0.jpg" alt="持ち込み調理" loading="lazy">
           <div class="menu-info">
             <h3>釣った魚、捌きます</h3>
             <p>
@@ -168,7 +171,8 @@
         </div>
 
         <div class="menu-item">
-          <img src="assets/images/bento_service.png" alt="出張料理" loading="lazy">
+          <!-- 出張料理・仕出しをイメージさせる料理 -->
+          <img src="assets/images/S__31965189_0.jpg" alt="出張料理" loading="lazy">
           <div class="menu-info">
             <h3>出張料理・特別仕出し</h3>
             <p>
@@ -192,7 +196,7 @@
           <tr>
         <div style="font-size: 16px; font-weight: 500;">
           <p style="margin-bottom: 5px;">〒238-0243<br>神奈川県三浦市三崎5-1-15</p>
-          <p style="margin-bottom: 5px;">営業時間：平日 16:00〜23:00 / 週末 12:00〜23:00</p>
+          <p style="margin-bottom: 5px;">営業時間：平日・週末ともに 17:00〜23:00（L.O. 22:00）</p>
           <p style="margin-bottom: 0;">定休日：月曜日</p>
         </div>
         
@@ -233,7 +237,9 @@
   <!-- フッター -->
   <footer class="footer">
     <div class="container">
-      <h2 class="footer-logo">サカナと酒菜<br>だ粋</h2>
+      <div class="footer-logo">
+        <img src="assets/images/logo.png" alt="サカナと酒菜 だ粋">
+      </div>
       <ul class="footer-nav">
         <li><a href="#top">トップ</a></li>
         <li><a href="#concept">お店の想い</a></li>
@@ -261,5 +267,17 @@
     });
   </script>
 
+<script>
+  // メニュー領域外クリックでメニューを閉じる
+  document.addEventListener('click', function(e) {
+    if (e.target.id === 'menu-toggle') return; /* チェックボックス自身のクリックイベントは無視（開閉不可バグ防止） */
+    var menuToggle = document.getElementById('menu-toggle');
+    if (menuToggle && menuToggle.checked) {
+      if (!e.target.closest('.hamburger') && !e.target.closest('.dropdown-menu')) {
+        menuToggle.checked = false;
+      }
+    }
+  });
+</script>
 </body>
 </html>
