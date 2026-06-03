@@ -417,6 +417,7 @@ a {
   width: auto;
   filter: invert(1);
   mix-blend-mode: screen;
+  pointer-events: none; /* 透明領域の被りによるリンクのクリック阻害を防止 */
 }
 .footer-nav {
   list-style: none;
@@ -427,6 +428,8 @@ a {
   gap: 30px;
   font-size: 15px;
   flex-wrap: wrap; /* 横書き用の折り返し指定 */
+  position: relative;
+  z-index: 10; /* ロゴより前面に出す */
 }
 .footer-nav li {
   letter-spacing: 0.1em; /* 横書き用に自然な字間へ戻す */
